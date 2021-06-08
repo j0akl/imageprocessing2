@@ -1,10 +1,14 @@
 package model.operation;
 
+<<<<<<< HEAD
+public class Greyscale extends AbstractColorOp {
+=======
+>>>>>>> 741e0f91817d3f831476173f1ad71a5c0717139b
 
 /**
  * Class that represents the greyscale filter.
  */
-public class Greyscale extends AbstractColorOp {
+public class Greyscale extends AbstractFilterOp {
 
   /**
    * Constructor for greyscale.

@@ -35,10 +35,13 @@ public class BasicPixel implements Pixel {
     clamp(rgb);
   }
 
+<<<<<<< HEAD
+=======
   /**
    * Gets the RGB.
    * @return RGB
    */
+>>>>>>> 741e0f91817d3f831476173f1ad71a5c0717139b
   public double[] getRGB() {
     return rgb;
   }

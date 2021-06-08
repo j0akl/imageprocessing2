@@ -6,10 +6,15 @@ import java.util.Stack;
 import model.operation.Operation;
 import model.pixel.Pixel;
 
+/**
+ * Class for a basic image, a sequence of pixels. The history will represent the most
+ * recent image with all filters/adjustments made to it.
+ */
 public class BasicImage implements Image {
 
   private final List<List<Pixel>> grid;
   private final Stack<Operation> history;
+
 
   public BasicImage() {
     grid = new ArrayList<>();

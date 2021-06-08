@@ -1,13 +1,19 @@
 package model.operation;
 
+<<<<<<< HEAD
+public class Sepia extends AbstractColorOp {
+=======
 /**
  * Class to represent the sepia filter.
  */
-public class Sepia extends AbstractColorOp {
+public class Sepia extends AbstractFilterOp {
 
   /**
    * Constructor for sepia.
    */
+public class Sepia extends AbstractFilterOp {
+>>>>>>> 741e0f91817d3f831476173f1ad71a5c0717139b
+
   public Sepia() {
     super(new double[][] {
         { 0.393, 0.769, 0.189 },
