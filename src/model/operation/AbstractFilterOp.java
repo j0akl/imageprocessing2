@@ -7,12 +7,14 @@ import java.util.List;
 import model.image.BasicImage;
 import model.pixel.Pixel;
 
+
 /**
  * Abstract class for filtering operations.
  */
 public abstract class AbstractFilterOp extends AbstractOperation {
 
   private final double[][] matrix;
+
 
   /**
    * Constructor for filter operation.
@@ -21,6 +23,7 @@ public abstract class AbstractFilterOp extends AbstractOperation {
   AbstractFilterOp(double[][] matrix) {
     this.matrix = matrix;
   }
+
 
   /**
    * Applies operation to basic image given.

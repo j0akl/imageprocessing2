@@ -1,5 +1,6 @@
 package model.operation;
 
+
 /**
  * Class that represents the greyscale filter.
  */

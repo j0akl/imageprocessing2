@@ -8,6 +8,8 @@ public class Sepia extends AbstractFilterOp {
   /**
    * Constructor for sepia.
    */
+public class Sepia extends AbstractFilterOp {
+
   public Sepia() {
     super(new double[][] {
         { 0.393, 0.769, 0.189 },

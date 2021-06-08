@@ -15,9 +15,7 @@ public class BasicImage implements Image {
   public final List<List<Pixel>> grid;
   private final Stack<Operation> history;
 
-  /**
-   * Basic image constructor.
-   */
+
   public BasicImage() {
     grid = new ArrayList<>();
     history = new Stack<>();

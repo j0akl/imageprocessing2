@@ -2,6 +2,7 @@ package model.pixel;
 
 import static model.utils.Utils.clamp;
 
+
 /**
  * Basic pixel class.
  */
@@ -9,6 +10,7 @@ public class BasicPixel implements Pixel {
 
   // INVARIANT: all 3 values are in [0, 255]
   private final double[] rgb;
+
 
   /**
    * Constructor for basic pixel.
@@ -25,6 +27,7 @@ public class BasicPixel implements Pixel {
    * Applies the change to the image.
    * @param change type of change wanting to be applied to image.
    */
+
   public void apply(double[] change) {
     for (int i = 0; i < 3; i++) {
       rgb[i] = rgb[i] + change[i];
