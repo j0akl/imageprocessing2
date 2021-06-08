@@ -1,5 +1,13 @@
 package model.operation;
 
+/**
+ * Class to represent the sepia filter.
+ */
+public class Sepia extends AbstractFilterOp {
+
+  /**
+   * Constructor for sepia.
+   */
 public class Sepia extends AbstractFilterOp {
 
   public Sepia() {
