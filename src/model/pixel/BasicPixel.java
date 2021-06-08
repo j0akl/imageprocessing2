@@ -19,7 +19,6 @@ public class BasicPixel implements Pixel {
     clamp(rgb);
   }
 
-
   public double[] getRGB() {
     return rgb;
   }

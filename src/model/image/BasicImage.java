@@ -8,7 +8,7 @@ import model.pixel.Pixel;
 
 public class BasicImage implements Image {
 
-  public final List<List<Pixel>> grid;
+  private final List<List<Pixel>> grid;
   private final Stack<Operation> history;
 
   public BasicImage() {
@@ -24,6 +24,11 @@ public class BasicImage implements Image {
 
   public void apply(Operation op) {
     op.applyToBasic(this);
+    history.add(op);
+  }
+
+  public List<List<Pixel>> getPixels() {
+    return this.grid;
   }
 
 }

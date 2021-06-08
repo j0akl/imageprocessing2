@@ -1,6 +1,6 @@
 package model.operation;
 
-public class Sepia extends AbstractFilterOp {
+public class Sepia extends AbstractColorOp {
 
   public Sepia() {
     super(new double[][] {

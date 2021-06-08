@@ -1,6 +1,6 @@
 package model.operation;
 
-public class Greyscale extends AbstractFilterOp {
+public class Greyscale extends AbstractColorOp {
 
 
   public Greyscale() {
