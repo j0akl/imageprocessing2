@@ -3,13 +3,14 @@ package model.operation;
 import static model.utils.Utils.matmul;
 
 import java.util.List;
+import model.image.Image;
 import model.pixel.Pixel;
 
 
 /**
  * Abstract class for coloring operations.
  */
-public abstract class AbstractColorOp extends AbstractOperation {
+public abstract class AbstractColorOp implements Operation {
 
   private final double[][] matrix;
 

@@ -33,7 +33,6 @@ public class BasicImage implements Image {
   }
 
   public List<List<Pixel>> getPixels() {
-    return this.grid;
+    return new ArrayList<>(this.grid);
   }
-
 }
