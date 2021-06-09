@@ -26,12 +26,14 @@ public abstract class AbstractColorOp implements Operation {
    * Applies operation to basic image given.
    * @param img
    */
-  public void applyToBasic(Image img) {
-      for (List<Pixel> row : img.getPixels()) {
+  public List<List<Pixel>> applyToBasic(Image img) {
+    List<List<Pixel>> pixels = img.getPixels();
+    for (List<Pixel> row : pixels) {
       for (Pixel p : row) {
         double[] change = matmul(matrix, p.getRGB());
         p.apply(change);
       }
     }
+    return pixels;
   }
 }

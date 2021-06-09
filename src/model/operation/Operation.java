@@ -1,10 +1,12 @@
 package model.operation;
 
+import java.util.List;
 import model.image.Image;
+import model.pixel.Pixel;
 
 /**
  * Operation interface.
  */
 public interface Operation {
-  void applyToBasic(Image img);
+  List<List<Pixel>> applyToBasic(Image img);
 }

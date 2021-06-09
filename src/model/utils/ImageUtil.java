@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
+import model.image.BasicImage;
+import model.image.Image;
+import model.operation.Blur;
+import model.operation.Greyscale;
+import model.operation.Sepia;
+import model.operation.Sharpen;
 import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 
@@ -58,7 +64,6 @@ public class ImageUtil {
             int r = sc.nextInt();
             int g = sc.nextInt();
             int b = sc.nextInt();
-            System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
             row.add(new BasicPixel(r, g, b));
         }
         image.add(row);
@@ -77,10 +82,19 @@ public class ImageUtil {
           filename = "res/Koala.ppm";
       }
 
+      Image koala;
       try {
-        ImageUtil.readPPM(filename);
+        koala = new BasicImage(filename);
       } catch (FileNotFoundException e) {
         System.out.println("File not found!");
+        return;
+      }
+      koala.apply(new Sharpen());
+    koala.apply(new Sharpen());
+    try {
+        koala.saveAs("res/koalaverysharp.ppm");
+      } catch (Exception e) {
+        System.out.println("failed");
       }
   }
 }

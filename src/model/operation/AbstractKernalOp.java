@@ -30,8 +30,8 @@ public class AbstractKernalOp implements Operation {
       for (int i = 0; i < kernal[0].length; i++) {
         double[] rgb;
         if (topLeftY + j < 0 || topLeftX + i < 0
-            || j + topLeftY  > pixels.size()
-            || i + topLeftX > pixels.get(0).size()) {
+            || j + topLeftY  > pixels.size() - 1
+            || i + topLeftX > pixels.get(0).size() - 1) {
           rgb = new double[] { 0, 0, 0 };
         } else {
           Pixel toMultiply = pixels.get(topLeftY + j).get(topLeftX + i);
@@ -49,7 +49,7 @@ public class AbstractKernalOp implements Operation {
   }
 
   @Override
-  public void applyToBasic(Image img) {
+  public List<List<Pixel>> applyToBasic(Image img) {
     List<List<Pixel>> pixels = img.getPixels();
     for (int j = 0; j < pixels.size(); j++) {
       List<Pixel> row = pixels.get(j);
@@ -57,5 +57,6 @@ public class AbstractKernalOp implements Operation {
         applyKernal(pixels, i, j);
       }
     }
+    return pixels;
   }
 }

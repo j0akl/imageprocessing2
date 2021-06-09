@@ -2,11 +2,15 @@ package model.image;
 
 import static model.utils.ImageUtil.readPPM;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 import model.operation.Operation;
+import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 
 /**
@@ -16,7 +20,7 @@ import model.pixel.Pixel;
 public class BasicImage implements Image {
 
   private String filename;
-  private final List<List<Pixel>> grid;
+  private List<List<Pixel>> grid;
   private final Stack<Operation> history;
 
 
@@ -32,18 +36,57 @@ public class BasicImage implements Image {
     history = new Stack<>();
   }
 
-  public void save() {
+  public void save() throws IOException {
     saveAs(filename);
   }
 
-  public void generateCheckerboard(int x, int y) {
-
+  public void saveAs(String filename) throws IOException {
+    File f = new File(filename);
+    FileWriter fw = new FileWriter(f);
+    fw.write("P3" + System.lineSeparator());
+    fw.write(String.valueOf(grid.get(0).size())
+        + " "
+        + String.valueOf(grid.size())
+        + System.lineSeparator());
+    fw.write("255" + System.lineSeparator());
+    for (int j = 0; j < grid.size(); j++) {
+      StringBuilder row = new StringBuilder();
+      for (int i = 0; i < grid.get(0).size(); i++) {
+        double[] rgb = grid.get(j).get(i).getRGB();
+        row.append(String.valueOf((int) rgb[0]))
+            .append(System.lineSeparator())
+            .append(String.valueOf((int) rgb[1]))
+            .append(System.lineSeparator())
+            .append(String.valueOf((int) rgb[2]))
+            .append(System.lineSeparator());
+      }
+      fw.write(row.toString());
+    }
+    fw.close();
+    this.filename = filename;
   }
 
-  public void saveAs(String filename) {}
+  public void generateCheckerboard(int x, int y) {
+    List<List<Pixel>> image = new ArrayList<>();
+    for (int j = 0; j < y; j++) {
+      List<Pixel> row = new ArrayList<>();
+      for (int i = 0; i < x; i++) {
+        if (j % 2 == 0 && i % 2 == 0) {
+          row.add(new BasicPixel(0, 0, 0));
+        } else if (j % 2 != 0 && i % 2 != 0) {
+          row.add(new BasicPixel(0, 0, 0));
+        } else {
+          row.add(new BasicPixel(255, 255, 255));
+        }
+      }
+      image.add(row);
+    }
+    grid = image;
+  }
+
 
   public void apply(Operation op) {
-    op.applyToBasic(this);
+    grid = op.applyToBasic(this);
     history.add(op);
   }
 
