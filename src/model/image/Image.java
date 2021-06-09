@@ -12,7 +12,7 @@ public interface Image {
 
   void saveAs(String name);
 
-  void load(String name);
+  void generateCheckerboard(int w, int h);
 
   void apply(Operation op);
 

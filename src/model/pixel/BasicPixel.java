@@ -2,7 +2,6 @@ package model.pixel;
 
 import static model.utils.Utils.clamp;
 
-
 /**
  * Basic pixel class.
  */
@@ -40,7 +39,7 @@ public class BasicPixel implements Pixel {
    * @return RGB
    */
   public double[] getRGB() {
-    return rgb;
+    return new double[] { rgb[0], rgb[1], rgb[2] };
   }
 
 }

@@ -1,37 +1,40 @@
 package model.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
+import model.pixel.BasicPixel;
+import model.pixel.Pixel;
 
 
 /**
- * This class contains utility methods to read a PPM image from file and simply print its contents. Feel free to change this method 
- *  as required.
+ * This class contains a method to read a PPM image, and return a grid of the pixels.
+ * We changed this method to return a List<List<Pixel>> rather than a String.
  */
 public class ImageUtil {
 
   /**
-   * Read an image file in the PPM format and print the colors.
+   * Read an image file in the PPM format and return the grid of pixels.
    *
-   * @param filename the path of the file. 
+   * @param filename the path of the file.
+   * @return a grid of the pixels read from the file.
    */
-  public static void readPPM(String filename) {
+  public static List<List<Pixel>> readPPM(String filename) throws FileNotFoundException,
+      IllegalStateException {
     Scanner sc;
+
+    List<List<Pixel>> image = new ArrayList<>();
     
-    try {
-        sc = new Scanner(new FileInputStream(filename));
-    }
-    catch (FileNotFoundException e) {
-        System.out.println("File "+filename+ " not found!");
-        return;
-    }
+    sc = new Scanner(new FileInputStream(filename));
+
     StringBuilder builder = new StringBuilder();
     //read the file line by line, and populate a string. This will throw away any comment lines
     while (sc.hasNextLine()) {
         String s = sc.nextLine();
         if (s.charAt(0)!='#') {
-            builder.append(s+System.lineSeparator());
+            builder.append(s).append(System.lineSeparator());
         }
     }
     
@@ -42,23 +45,25 @@ public class ImageUtil {
 
     token = sc.next();
     if (!token.equals("P3")) {
-        System.out.println("Invalid PPM file: plain RAW file should begin with P3");
+      throw new IllegalStateException("Incompatible file type. File needs to begin with P3.");
     }
+    // leaving these so the file is read correctly
     int width = sc.nextInt();
-    System.out.println("Width of image: "+width);
     int height = sc.nextInt();
-    System.out.println("Height of image: "+height);
     int maxValue = sc.nextInt();
-    System.out.println("Maximum value of a color in this file (usually 256): "+maxValue);
-    
+
     for (int i=0;i<height;i++) {
+      List<Pixel> row = new ArrayList<>();
         for (int j=0;j<width;j++) {
             int r = sc.nextInt();
             int g = sc.nextInt();
             int b = sc.nextInt();
             System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
+            row.add(new BasicPixel(r, g, b));
         }
+        image.add(row);
     }
+    return image;
   }
 
   //demo main
@@ -71,8 +76,12 @@ public class ImageUtil {
       else {
           filename = "res/Koala.ppm";
       }
-      
-      ImageUtil.readPPM(filename);
+
+      try {
+        ImageUtil.readPPM(filename);
+      } catch (FileNotFoundException e) {
+        System.out.println("File not found!");
+      }
   }
 }
 

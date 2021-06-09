@@ -6,14 +6,12 @@ import java.util.List;
 import model.image.Image;
 import model.pixel.Pixel;
 
-
 /**
  * Abstract class for coloring operations.
  */
 public abstract class AbstractColorOp implements Operation {
 
   private final double[][] matrix;
-
 
   /**
    * Constructor for filter operation.

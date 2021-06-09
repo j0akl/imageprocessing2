@@ -1,5 +1,8 @@
 package model.image;
 
+import static model.utils.ImageUtil.readPPM;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -12,20 +15,32 @@ import model.pixel.Pixel;
  */
 public class BasicImage implements Image {
 
+  private String filename;
   private final List<List<Pixel>> grid;
   private final Stack<Operation> history;
 
 
   public BasicImage() {
+    filename = null;
     grid = new ArrayList<>();
     history = new Stack<>();
   }
 
-  public void save() {}
+  public BasicImage(String filename) throws FileNotFoundException, IllegalStateException {
+    this.filename = filename;
+    grid = readPPM(filename);
+    history = new Stack<>();
+  }
+
+  public void save() {
+    saveAs(filename);
+  }
+
+  public void generateCheckerboard(int x, int y) {
+
+  }
 
   public void saveAs(String filename) {}
-
-  public void load(String filename) {}
 
   public void apply(Operation op) {
     op.applyToBasic(this);
