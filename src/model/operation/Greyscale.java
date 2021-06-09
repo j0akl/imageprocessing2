@@ -16,5 +16,4 @@ public class Greyscale extends AbstractColorOp {
         { 0.2126, 0.7152, 0.0722 },
     });
   }
-
 }

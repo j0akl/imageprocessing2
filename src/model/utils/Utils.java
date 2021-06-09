@@ -9,15 +9,16 @@ public class Utils {
    * @param rgb
    * @return a matrix
    */
-  public static double[] multiplyRGB3x3(double[][] manip, double[] rgb) {
-    double[] toReturn = new double[]{ 0, 0, 0 };
+  public static double[] matmul(double[][] manip, double[] rgb) {
+    double[] toReturn = new double[manip.length];
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < rgb.length; i++) {
       toReturn[i] = rgb[0] * manip[i][0] + rgb[1] * manip[i][1] + rgb[2] * manip[i][2];
     }
 
     return toReturn;
   }
+
 
   /**
    * Clamp ensures resulting image can be properly saved and displayed. This avoids overflow

@@ -1,5 +1,5 @@
 import static org.junit.Assert.assertEquals;
-import static model.utils.Utils.multiplyRGB3x3;
+import static model.utils.Utils.matmul;
 
 import java.util.List;
 import org.junit.Before;
@@ -23,8 +23,8 @@ public class TestUtils {
 
   // test for matrixMutliplication 3x3
   @Test
-  public void testMatmul3x3() {
-    double[] temp = multiplyRGB3x3(basicMatrix, testRGB);
+  public void testMatmul() {
+    double[] temp = matmul(basicMatrix, testRGB);
     System.out.println(temp[0]);
     System.out.println(temp[1]);
     System.out.println(temp[2]);
