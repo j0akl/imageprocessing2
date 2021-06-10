@@ -23,23 +23,41 @@ public class BasicImage implements Image {
   private List<List<Pixel>> grid;
   private final Stack<Operation> history;
 
-
+  /**
+   *
+   *
+   */
   public BasicImage() {
     filename = null;
     grid = new ArrayList<>();
     history = new Stack<>();
   }
 
+  /**
+   * Constructs a basic image.
+   * @param filename Filename in form of string.
+   * @throws FileNotFoundException throws a file not located exception.
+   * @throws IllegalStateException throws an illegal state exception.
+   */
   public BasicImage(String filename) throws FileNotFoundException, IllegalStateException {
     this.filename = filename;
     grid = readPPM(filename);
     history = new Stack<>();
   }
 
+  /**
+   * Saves the image with the file name.
+   * @throws IOException exception.
+   */
   public void save() throws IOException {
     saveAs(filename);
   }
 
+  /**
+   * Saves the file in a PPM format.
+   * @param filename the file itself.
+   * @throws IOException exception.
+   */
   public void saveAs(String filename) throws IOException {
     File f = new File(filename);
     FileWriter fw = new FileWriter(f);
@@ -66,6 +84,11 @@ public class BasicImage implements Image {
     this.filename = filename;
   }
 
+  /**
+   * Creates an image programtically by generating a checkerboard.
+   * @param x to represent the rows.
+   * @param y to represent the columns.
+   */
   public void generateCheckerboard(int x, int y) {
     List<List<Pixel>> image = new ArrayList<>();
     for (int j = 0; j < y; j++) {
