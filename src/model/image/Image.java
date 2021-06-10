@@ -13,7 +13,7 @@ public interface Image {
 
   void saveAs(String name) throws IOException;
 
-  void generateCheckerboard(int w, int h);
+  void generateCheckerboard(int w, int h, double[] rgb);
 
   void apply(Operation op);
 

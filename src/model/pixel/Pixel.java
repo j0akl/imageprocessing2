@@ -6,7 +6,7 @@ public interface Pixel {
 
   // --- display
 
-  void apply(double[] change);
+  void changeRGB(double[] newRGB);
 
   double[] getRGB();
 

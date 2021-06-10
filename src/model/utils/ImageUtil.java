@@ -1,5 +1,7 @@
 package model.utils;
 
+import static model.operation.OperationFactory.createOp;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,6 +11,7 @@ import model.image.BasicImage;
 import model.image.Image;
 import model.operation.Blur;
 import model.operation.Greyscale;
+import model.operation.OperationFactory.OpType;
 import model.operation.Sepia;
 import model.operation.Sharpen;
 import model.pixel.BasicPixel;
@@ -79,22 +82,24 @@ public class ImageUtil {
           filename = args[0];
       }
       else {
-          filename = "res/Koala.ppm";
+          filename = "res/buck.ppm";
       }
 
-      Image koala;
-      try {
-        koala = new BasicImage(filename);
-      } catch (FileNotFoundException e) {
-        System.out.println("File not found!");
-        return;
-      }
-      koala.apply(new Sharpen());
-    koala.apply(new Sharpen());
-    try {
-        koala.saveAs("res/koalaverysharp.ppm");
-      } catch (Exception e) {
-        System.out.println("failed");
+      for (OpType op : OpType.values()) {
+        Image img;
+        try {
+          img = new BasicImage(filename);
+        } catch (FileNotFoundException e) {
+          System.out.println("File not found!");
+          return;
+        }
+        img.apply(createOp(op));
+        try {
+          img.saveAs(filename.substring(0, filename.length() - 4) + op.toString() + ".ppm");
+        } catch (Exception e) {
+          System.out.println(e.getMessage());
+          System.out.println("failed");
+        }
       }
   }
 }

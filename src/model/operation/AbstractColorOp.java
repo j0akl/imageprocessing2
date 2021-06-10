@@ -2,6 +2,7 @@ package model.operation;
 
 import static model.utils.Utils.matmul;
 
+import java.util.Arrays;
 import java.util.List;
 import model.image.Image;
 import model.pixel.Pixel;
@@ -31,7 +32,7 @@ public abstract class AbstractColorOp implements Operation {
     for (List<Pixel> row : pixels) {
       for (Pixel p : row) {
         double[] change = matmul(matrix, p.getRGB());
-        p.apply(change);
+        p.changeRGB(change);
       }
     }
     return pixels;

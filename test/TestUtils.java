@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static model.utils.Utils.matmul;
 
@@ -21,14 +22,13 @@ public class TestUtils {
     };
   }
 
-  // test for matrixMutliplication 3x3
+  // test for matmul
   @Test
   public void testMatmul() {
-    double[] temp = matmul(basicMatrix, testRGB);
-    System.out.println(temp[0]);
-    System.out.println(temp[1]);
-    System.out.println(temp[2]);
+    double[] result = matmul(basicMatrix, testRGB);
+    assertArrayEquals("matmul gave wrong values.",
+        new double[] { 85.0, 190.0, 115.0},
+        result,
+        0.0001);
   }
-
-
 }

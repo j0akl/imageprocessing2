@@ -42,10 +42,7 @@ public class AbstractKernalOp implements Operation {
         }
       }
     }
-    for (int i = 0; i < changeInRGB.length; i++) {
-      changeInRGB[i] = changeInRGB[i] - toAlter.getRGB()[i];
-    }
-    toAlter.apply(changeInRGB);
+    toAlter.changeRGB(changeInRGB);
   }
 
   @Override

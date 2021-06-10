@@ -23,14 +23,12 @@ public class BasicPixel implements Pixel {
   }
 
   /**
-   * Applies the change to the image.
-   * @param change type of change wanting to be applied to image.
+   * Sets the rgb value of a pixel to the given value.
+   * @param newRGB the value to set the pixel to.
    */
 
-  public void apply(double[] change) {
-    for (int i = 0; i < 3; i++) {
-      rgb[i] = rgb[i] + change[i];
-    }
+  public void changeRGB(double[] newRGB) {
+    System.arraycopy(newRGB, 0, rgb, 0, 3);
     clamp(rgb);
   }
 
