@@ -14,7 +14,7 @@ public class TestSharpen extends TestOperation {
   public void testSharpen() {
     checkerboard.apply(op);
     List<List<Pixel>> checkerPixels = checkerboard.getPixels();
-    
+
   }
 
 }
