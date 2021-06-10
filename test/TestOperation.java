@@ -31,22 +31,18 @@ public abstract class TestOperation {
   public void setup() {
     this.op = createOp(optype);
     this.checkerboard = new BasicImage();
-    checkerboard.generateCheckerboard(10, 10, new double[] { 120, 200, 100 });
+    checkerboard.generateCheckerboard(5, 5, new double[] { 120, 200, 100 });
   }
 
   // test that the operation maintains height and width
   @Test
   public void testDimensions() {
-    assertEquals("Checkerboard image not created correctly.",
-        checkerboard.getPixels().size(), 10);
-    assertEquals("Checkerboard image not created correctly.",
-        checkerboard.getPixels().get(0).size(), 10);
     checkerboard.apply(op);
     assertEquals("Operation changed height of image.",
         checkerboard.getPixels().size(),
-        10);
+        5);
     assertEquals("Operation changed width of image.",
-        checkerboard.getPixels().get(0).size(), 10);
+        checkerboard.getPixels().get(0).size(), 5);
   }
 
   // method used by Sepia and Greyscale to test their operations
