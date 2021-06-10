@@ -7,7 +7,7 @@ package model.operation;
 public class Greyscale extends AbstractColorOp {
 
   /**
-   * Constructor for greyscale.
+   * Constructor for greyscale. Image will become grey.
    */
   public Greyscale() {
     super(new double[][] {

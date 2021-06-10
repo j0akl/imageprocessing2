@@ -3,7 +3,7 @@ package model.pixel;
 import static model.utils.Utils.clamp;
 
 /**
- * Basic pixel class.
+ * Basic pixel class that implements the pixel.
  */
 public class BasicPixel implements Pixel {
 

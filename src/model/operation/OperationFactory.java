@@ -1,12 +1,25 @@
 package model.operation;
 
+/**
+ * Class for the operations.
+ * Can add more filters.
+ */
 public class OperationFactory {
 
+  /**
+   * Enumeration for the type of operation.
+   */
   public enum OpType {
     BLUR, SHARPEN, GREYSCALE, SEPIA
   }
 
   // mostly used for testing operations
+  /**
+   * Which filter/operation should be used on the image.
+   * @param op operation type.
+   * @return the operation.
+   * @throws IllegalArgumentException exception of Invalid operation type.
+   */
   public static Operation createOp(OpType op) throws IllegalArgumentException {
     switch (op) {
       case BLUR:

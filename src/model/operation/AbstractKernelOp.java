@@ -13,11 +13,21 @@ public class AbstractKernelOp implements Operation {
 
   private final double[][] kernel;
 
+  /**
+   * Constructor for abstract kernel operation.
+   * @param matrix matrix
+   */
   public AbstractKernelOp(double[][] matrix) {
     this.kernel = matrix;
   }
 
-
+  /**
+   * Applies kernel algorithm to the list of list of pixels.
+   * @param pixels the image represented as a list of list of pixels.
+   * @param x representing rows
+   * @param y representing columns
+   * @return the new Pixel with proper manipulated values.
+   */
   private Pixel applyKernel(List<List<Pixel>> pixels, int x, int y) {
     int kernelX = kernel[0].length;
     int kernelY = kernel.length;
@@ -45,6 +55,13 @@ public class AbstractKernelOp implements Operation {
     return new BasicPixel(newRGB[0], newRGB[1], newRGB[2]);
   }
 
+
+  /**
+   * Applying to basic image using kernel method. Not every operation/filter
+   * uses kernel algorithm to manipulate image.
+   * @param img the image
+   * @return the new list of list of pixels.
+   */
   @Override
   public List<List<Pixel>> applyToBasic(Image img) {
     List<List<Pixel>> pixels = img.getPixels();

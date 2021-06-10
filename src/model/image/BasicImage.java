@@ -16,7 +16,7 @@ import model.pixel.Pixel;
 
 /**
  * Class for a basic image, a sequence of pixels. The history will represent the most
- * recent image with all filters/adjustments made to it.
+ * recent image with all filters/adjustments made to it. Implements image interface.
  */
 public class BasicImage implements Image {
 
@@ -25,8 +25,7 @@ public class BasicImage implements Image {
   private final Stack<Operation> history;
 
   /**
-   *
-   *
+   *Initializes basic image.
    */
   public BasicImage() {
     filename = null;
@@ -54,7 +53,11 @@ public class BasicImage implements Image {
     saveAs(filename);
   }
 
-  // @maya added this helper method when writing tests
+  /**
+   * Writes given file in PPM format.
+   * @param f file name
+   * @throws IOException  exception
+   */
   private void writeToFile(File f) throws IOException {
     FileWriter fw = new FileWriter(f);
     fw.write("P3" + System.lineSeparator());
@@ -91,7 +94,7 @@ public class BasicImage implements Image {
   }
 
   /**
-   * Creates an image programtically by generating a checkerboard. Half
+   * Creates an image programatically by generating a checkerboard. Half
    * of the squares will be black, the other will be the color
    * specified by rgb.
    * @param x to represent the rows.
@@ -120,12 +123,20 @@ public class BasicImage implements Image {
     grid = image;
   }
 
-
+  /**
+   * Apply given operation given in parameters. Uses helper method
+   * which performs the actual manipulation.
+   * @param op the operation
+   */
   public void apply(Operation op) {
     grid = op.applyToBasic(this);
     history.add(op);
   }
 
+  /**
+   * Gets the grid of pixels.
+   * @return the list of list of pixels, the grid.
+   */
   public List<List<Pixel>> getPixels() {
     return new ArrayList<>(this.grid);
   }

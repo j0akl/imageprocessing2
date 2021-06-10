@@ -74,7 +74,10 @@ public class ImageUtil {
     return image;
   }
 
-  //demo main
+  /**
+   * Main method to test the functionality of the program.
+   * @param args string
+   */
   public static void main(String []args) {
       String filename;
       

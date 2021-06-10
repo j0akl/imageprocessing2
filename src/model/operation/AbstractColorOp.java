@@ -16,7 +16,7 @@ public abstract class AbstractColorOp implements Operation {
 
   /**
    * Constructor for filter operation.
-   * @param matrix
+   * @param matrix matrix
    */
   public AbstractColorOp(double[][] matrix) {
     this.matrix = matrix;
@@ -25,7 +25,7 @@ public abstract class AbstractColorOp implements Operation {
 
   /**
    * Applies operation to basic image given.
-   * @param img
+   * @param img image
    */
   public List<List<Pixel>> applyToBasic(Image img) {
     List<List<Pixel>> pixels = img.getPixels();

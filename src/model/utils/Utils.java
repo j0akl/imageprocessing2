@@ -1,5 +1,8 @@
 package model.utils;
 
+/**
+ * Utils class.
+ */
 public class Utils {
 
   /**
