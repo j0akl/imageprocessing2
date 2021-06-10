@@ -17,7 +17,7 @@ public class OperationFactory {
   /**
    * Which filter/operation should be used on the image.
    * @param op operation type.
-   * @return the operation.
+   * @return the operation user wants to work with.
    * @throws IllegalArgumentException exception of Invalid operation type.
    */
   public static Operation createOp(OpType op) throws IllegalArgumentException {

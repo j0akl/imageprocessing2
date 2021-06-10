@@ -8,9 +8,9 @@ public class Utils {
   /**
    * Multiplies the matrix by the correct values to get the new
    * matrix with proper values.
-   * @param manip
-   * @param rgb
-   * @return a matrix
+   * @param manip the matrix that has the constant values.
+   * @param rgb the r,g,b values being multiplied.
+   * @return a newly calculated matrix.
    */
   public static double[] matmul(double[][] manip, double[] rgb) {
     double[] toReturn = new double[manip.length];
@@ -26,7 +26,7 @@ public class Utils {
   /**
    * Clamp ensures resulting image can be properly saved and displayed. This avoids overflow
    * and underflow while saving images.
-   * @param arr
+   * @param arr the array of doubles.
    */
   public static void clamp(double[] arr) {
     for (int i = 0; i < 3; i++) {

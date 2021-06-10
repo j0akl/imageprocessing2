@@ -76,7 +76,7 @@ public class ImageUtil {
 
   /**
    * Main method to test the functionality of the program.
-   * @param args string
+   * @param args filename as string array of arguments.
    */
   public static void main(String []args) {
       String filename;

@@ -6,7 +6,7 @@ package model.operation;
 public class Sepia extends AbstractColorOp {
 
   /**
-   * Constructor for sepia.
+   * Constructor for sepia. The filter that alters the image coloring.
    */
   public Sepia() {
     super(new double[][] {

@@ -15,7 +15,7 @@ public class AbstractKernelOp implements Operation {
 
   /**
    * Constructor for abstract kernel operation.
-   * @param matrix matrix
+   * @param matrix the matrix from operations with constant values.
    */
   public AbstractKernelOp(double[][] matrix) {
     this.kernel = matrix;
@@ -59,7 +59,7 @@ public class AbstractKernelOp implements Operation {
   /**
    * Applying to basic image using kernel method. Not every operation/filter
    * uses kernel algorithm to manipulate image.
-   * @param img the image
+   * @param img the image being altered.
    * @return the new list of list of pixels.
    */
   @Override

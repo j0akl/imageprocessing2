@@ -47,7 +47,7 @@ public class BasicImage implements Image {
 
   /**
    * Saves the image with the file name.
-   * @throws IOException exception.
+   * @throws IOException throws exception if unable to save.
    */
   public void save() throws IOException {
     saveAs(filename);
@@ -55,8 +55,8 @@ public class BasicImage implements Image {
 
   /**
    * Writes given file in PPM format.
-   * @param f file name
-   * @throws IOException  exception
+   * @param f file name user is working with.
+   * @throws IOException  exception thrown if unable to write to PPM format.
    */
   private void writeToFile(File f) throws IOException {
     FileWriter fw = new FileWriter(f);
@@ -84,8 +84,8 @@ public class BasicImage implements Image {
 
   /**
    * Saves the file in a PPM format.
-   * @param filename the file itself.
-   * @throws IOException exception.
+   * @param filename the file itself as a string.
+   * @throws IOException exception thrown if unable to save.
    */
   public void saveAs(String filename) throws IOException {
     File f = new File(filename);
@@ -126,7 +126,7 @@ public class BasicImage implements Image {
   /**
    * Apply given operation given in parameters. Uses helper method
    * which performs the actual manipulation.
-   * @param op the operation
+   * @param op the operation desired to use.
    */
   public void apply(Operation op) {
     grid = op.applyToBasic(this);

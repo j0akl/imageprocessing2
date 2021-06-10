@@ -14,14 +14,14 @@ public interface Image {
 
   /**
    * Saves image.
-   * @throws IOException exception.
+   * @throws IOException throws exception if unable to save.
    */
   void save() throws IOException;
 
   /**
    * Helper that saves the given filename in PPM format.
-   * @param name
-   * @throws IOException
+   * @param name the file itself as a string.
+   * @throws IOException exception thrown if unable to save.
    */
   void saveAs(String name) throws IOException;
 
