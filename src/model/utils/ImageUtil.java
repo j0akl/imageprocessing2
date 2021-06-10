@@ -82,7 +82,7 @@ public class ImageUtil {
           filename = args[0];
       }
       else {
-          filename = "res/buck.ppm";
+          filename = "res/snail.ppm";
       }
 
       for (OpType op : OpType.values()) {

@@ -1,6 +1,6 @@
 package model.operation;
 
-public class Sharpen extends AbstractKernalOp {
+public class Sharpen extends AbstractKernelOp {
 
   public Sharpen() {
     super(new double[][] {

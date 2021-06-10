@@ -1,6 +1,6 @@
 package model.operation;
 
-public class Blur extends AbstractKernalOp {
+public class Blur extends AbstractKernelOp {
 
   public Blur() {
     super(new double[][] {
