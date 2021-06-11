@@ -16,7 +16,7 @@ public class TestImage {
   @Before
   public void setup() {
     this.checkerboard = new BasicImage();
-    checkerboard.generateCheckerboard(10, 10, new double[] { 255, 255, 255 });
+    checkerboard.generateCheckerboard(10, 10, new double[]{255, 255, 255});
   }
 
   @Test
@@ -26,18 +26,17 @@ public class TestImage {
       for (int i = 0; i < checkerPixels.get(0).size(); i++) {
         if (i % 2 == 0 && j % 2 == 0) {
           assertTrue("Black pixel not found at " + i + ", " + j,
-              Arrays.equals(checkerPixels.get(j).get(i).getRGB(), new double[] {0., 0., 0.}));
+              Arrays.equals(checkerPixels.get(j).get(i).getRGB(), new double[]{0., 0., 0.}));
         } else if (j % 2 != 0 && i % 2 != 0) {
           assertTrue("Black pixel not found at " + i + ", " + j,
-              Arrays.equals(checkerPixels.get(j).get(i).getRGB(), new double[] {0., 0., 0.}));
+              Arrays.equals(checkerPixels.get(j).get(i).getRGB(), new double[]{0., 0., 0.}));
         } else {
           assertTrue("White pixel not found at " + i + ", " + j,
-              Arrays.equals(checkerPixels.get(j).get(i).getRGB(), new double[] {255., 255., 255.}));
+              Arrays.equals(checkerPixels.get(j).get(i).getRGB(), new double[]{255., 255., 255.}));
         }
       }
     }
   }
 
-  @Test
 
 }

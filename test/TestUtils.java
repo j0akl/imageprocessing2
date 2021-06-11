@@ -1,3 +1,4 @@
+import static model.utils.Utils.clamp;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static model.utils.Utils.matmul;
@@ -31,4 +32,31 @@ public class TestUtils {
         result,
         0.0001);
   }
+
+  // test for matrixMutliplication 3x3
+  @Test
+  public void testMatmul3x3() {
+    double[] temp = matmul(basicMatrix, testRGB);
+    System.out.println(temp[0]);
+    System.out.println(temp[1]);
+    System.out.println(temp[2]);
+
+  }
+
+  //test for clamp with value greater than 255
+  @Test (expected = ArrayIndexOutOfBoundsException.class)
+  public void testOutBoundClamp(){
+    double [] outBound = new double[258];
+    clamp(outBound);
+    System.out.println(outBound[258]);
+  }
+
+  //test for clamp with value less than 255
+  @Test
+  public void testInBoundClamp(){
+    double [] inBound = new double[50];
+    clamp(inBound);
+    System.out.println(inBound);
+  }
+
 }
