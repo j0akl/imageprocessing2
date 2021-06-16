@@ -1,6 +1,6 @@
 package model.pixel;
 
-//import model.operation.Operation;
+import model.operation.Operation;
 
 /**
  * Pixel interface.

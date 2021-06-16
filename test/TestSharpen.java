@@ -1,11 +1,14 @@
 import static org.junit.Assert.assertArrayEquals;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.List;
 import model.operation.OperationFactory.OpType;
 import model.pixel.Pixel;
 import org.junit.Test;
 
+/**
+ * Class for testing sharpness.
+ */
 public class TestSharpen extends TestOperation {
 
   public TestSharpen() {

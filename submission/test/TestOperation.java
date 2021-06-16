@@ -46,12 +46,8 @@ public abstract class TestOperation {
         3);
   }
 
-
-  /**
-   * Method used by Sepia and Greyscale to test their operations
-   * on the checkerboard image.
-   * @param target target
-   */
+  // method used by Sepia and Greyscale to test their operations
+  // on the checkerboard image
   public void testColorCorrectionsOnCheckerboard(double[] target) {
     checkerboard.apply(op);
     List<List<Pixel>> checkerPixels = checkerboard.getPixels();

@@ -2,7 +2,7 @@ package model.operation;
 
 import static model.utils.Utils.matmul;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 import java.util.List;
 import model.image.Image;
 import model.pixel.Pixel;

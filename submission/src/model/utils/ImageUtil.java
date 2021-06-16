@@ -9,18 +9,18 @@ import java.io.FileNotFoundException;
 import java.io.FileInputStream;
 import model.image.BasicImage;
 import model.image.Image;
-//import model.operation.Blur;
-//import model.operation.Greyscale;
+import model.operation.Blur;
+import model.operation.Greyscale;
 import model.operation.OperationFactory.OpType;
-//import model.operation.Sepia;
-//import model.operation.Sharpen;
+import model.operation.Sepia;
+import model.operation.Sharpen;
 import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 
 
 /**
- * This class contains a method to read a PPM image, and return a grid of the pixels. We changed
- * this method to return a list of list of pixels rather than a String.
+ * This class contains a method to read a PPM image, and return a grid of the pixels.
+ * We changed this method to return a List<List<Pixel>> rather than a String.
  */
 public class ImageUtil {
 
@@ -35,22 +35,22 @@ public class ImageUtil {
     Scanner sc;
 
     List<List<Pixel>> image = new ArrayList<>();
-
+    
     sc = new Scanner(new FileInputStream(filename));
 
     StringBuilder builder = new StringBuilder();
     //read the file line by line, and populate a string. This will throw away any comment lines
     while (sc.hasNextLine()) {
-      String s = sc.nextLine();
-      if (s.charAt(0) != '#') {
-        builder.append(s).append(System.lineSeparator());
-      }
+        String s = sc.nextLine();
+        if (s.charAt(0)!='#') {
+            builder.append(s).append(System.lineSeparator());
+        }
     }
-
+    
     //now set up the scanner to read from the string we just built
     sc = new Scanner(builder.toString());
 
-    String token;
+    String token; 
 
     token = sc.next();
     if (!token.equals("P3")) {
@@ -61,49 +61,49 @@ public class ImageUtil {
     int height = sc.nextInt();
     int maxValue = sc.nextInt();
 
-    for (int i = 0; i < height; i++) {
+    for (int i=0;i<height;i++) {
       List<Pixel> row = new ArrayList<>();
-      for (int j = 0; j < width; j++) {
-        int r = sc.nextInt();
-        int g = sc.nextInt();
-        int b = sc.nextInt();
-        row.add(new BasicPixel(r, g, b));
-      }
-      image.add(row);
+        for (int j=0;j<width;j++) {
+            int r = sc.nextInt();
+            int g = sc.nextInt();
+            int b = sc.nextInt();
+            row.add(new BasicPixel(r, g, b));
+        }
+        image.add(row);
     }
     return image;
   }
 
   /**
    * Main method to test the functionality of the program.
-   *
    * @param args filename as string array of arguments.
    */
-  public static void main(String[] args) {
-    String filename;
-
-    if (args.length > 0) {
-      filename = args[0];
-    } else {
-      filename = "res/snail.ppm";
-    }
-
-    for (OpType op : OpType.values()) {
-      Image img;
-      try {
-        img = new BasicImage(filename);
-      } catch (FileNotFoundException e) {
-        System.out.println("File not found!");
-        return;
+  public static void main(String []args) {
+      String filename;
+      
+      if (args.length>0) {
+          filename = args[0];
       }
-      img.apply(createOp(op));
-      try {
-        img.saveAs(filename.substring(0, filename.length() - 4) + op.toString() + ".ppm");
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-        System.out.println("failed");
+      else {
+          filename = "res/snail.ppm";
       }
-    }
+
+      for (OpType op : OpType.values()) {
+        Image img;
+        try {
+          img = new BasicImage(filename);
+        } catch (FileNotFoundException e) {
+          System.out.println("File not found!");
+          return;
+        }
+        img.apply(createOp(op));
+        try {
+          img.saveAs(filename.substring(0, filename.length() - 4) + op.toString() + ".ppm");
+        } catch (Exception e) {
+          System.out.println(e.getMessage());
+          System.out.println("failed");
+        }
+      }
   }
 }
 
