@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckBLUR.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/buckBLUR.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckSHARPEN.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/buckSHARPEN.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailBLUR.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/snailBLUR.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailSHARPEN.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/snailSHARPEN.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/operation/AbstractKernalOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/AbstractKernelOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/operation/Blur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/Blur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/operation/Sharpen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/Sharpen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/utils/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/utils/ImageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestBlur.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestBlur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestSharpen.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestSharpen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +42,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,7 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1623346451834</updated>
       <workItem from="1623346453124" duration="808000" />
-      <workItem from="1623353511531" duration="1418000" />
+      <workItem from="1623353511531" duration="1465000" />
+      <workItem from="1623791150790" duration="44000" />
     </task>
     <servers />
   </component>
@@ -144,5 +120,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
