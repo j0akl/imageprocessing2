@@ -3,8 +3,8 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
-import model.image.BasicImage;
-import model.image.Image;
+import model.image.BasicLayer;
+import model.image.Layer;
 import model.operation.Operation;
 import model.operation.OperationFactory.OpType;
 import model.pixel.Pixel;
@@ -20,7 +20,7 @@ import org.junit.Test;
 public abstract class TestOperation {
 
   OpType optype;
-  Image checkerboard;
+  Layer checkerboard;
   Operation op;
 
   public TestOperation(OpType op) {
@@ -30,7 +30,7 @@ public abstract class TestOperation {
   @Before
   public void setup() {
     this.op = createOp(optype);
-    this.checkerboard = new BasicImage();
+    this.checkerboard = new BasicLayer();
     checkerboard.generateCheckerboard(3, 3, new double[] { 120, 200, 100 });
   }
 

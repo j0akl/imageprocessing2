@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
-import model.image.BasicImage;
-import model.image.Image;
+import model.image.BasicLayer;
+import model.image.Layer;
 //import model.operation.Blur;
 //import model.operation.Greyscale;
 import model.operation.OperationFactory.OpType;
@@ -89,9 +89,9 @@ public class ImageUtil {
     }
 
     for (OpType op : OpType.values()) {
-      Image img;
+      Layer img;
       try {
-        img = new BasicImage(filename);
+        img = new BasicLayer(filename);
       } catch (FileNotFoundException e) {
         System.out.println("File not found!");
         return;

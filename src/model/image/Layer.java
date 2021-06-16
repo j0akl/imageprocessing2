@@ -8,10 +8,7 @@ import model.pixel.Pixel;
 /**
  * Image interface.
  */
-public interface Image {
-
-  // ------ display();
-
+public interface Layer {
   /**
    * Saves image.
    * @throws IOException throws exception if unable to save.
@@ -33,6 +30,16 @@ public interface Image {
    */
   void generateCheckerboard(int w, int h, double[] rgb);
 
+  /**
+   * Copies the layer.
+   * @return An exact deep copy of this layer
+   */
+  Layer copy();
+
+  /**
+   * Changes the visibility of a layer.
+   */
+  void changeVisibility();
 
   /**
    * Apply given operation given in parameters. Uses helper method

@@ -18,19 +18,37 @@ import model.pixel.Pixel;
  * Class for a basic image, a sequence of pixels. The history will represent the most
  * recent image with all filters/adjustments made to it. Implements image interface.
  */
-public class BasicImage implements Image {
+public class BasicLayer implements Layer {
 
   private String filename;
   private List<List<Pixel>> grid;
   private final Stack<Operation> history;
+  private boolean isVisible;
 
   /**
    *Initializes basic image.
    */
-  public BasicImage() {
+  public BasicLayer() {
     filename = null;
     grid = new ArrayList<>();
     history = new Stack<>();
+    isVisible = true;
+  }
+
+  /**
+   * Private constructor used in copy() to create a new layer
+   * with the copied pixels.
+   * @param grid - a deep copy of the pixels in an image to copy
+   */
+  private BasicLayer(List<List<Pixel>> grid) {
+    filename = null;
+    this.grid = grid;
+    history = new Stack<>();
+    isVisible = true;
+  }
+
+  public Layer copy() {
+    return new BasicLayer(getPixels());
   }
 
   /**
@@ -39,11 +57,17 @@ public class BasicImage implements Image {
    * @throws FileNotFoundException throws a file not located exception.
    * @throws IllegalStateException throws an illegal state exception.
    */
-  public BasicImage(String filename) throws FileNotFoundException, IllegalStateException {
+  public BasicLayer(String filename) throws FileNotFoundException, IllegalStateException {
     this.filename = filename;
     grid = readPPM(filename);
     history = new Stack<>();
+    isVisible = true;
   }
+
+  public void changeVisibility() {
+    isVisible = !isVisible;
+  }
+
 
   /**
    * Saves the image with the file name.
@@ -138,6 +162,16 @@ public class BasicImage implements Image {
    * @return the list of list of pixels, the grid.
    */
   public List<List<Pixel>> getPixels() {
-    return new ArrayList<>(this.grid);
+    List<List<Pixel>> toReturn = new ArrayList<>();
+    for (int i = 0; i < grid.size(); i++) {
+      List<Pixel> row = new ArrayList<>();
+      for (int j = 0; j < grid.get(0).size(); j++) {
+        double[] rgb = grid.get(i).get(j).getRGB();
+        Pixel copy = new BasicPixel(rgb[0], rgb[1], rgb[2]);
+        row.add(copy);
+      }
+      toReturn.add(row);
+    }
+    return toReturn;
   }
 }

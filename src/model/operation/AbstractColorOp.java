@@ -4,7 +4,7 @@ import static model.utils.Utils.matmul;
 
 //import java.util.Arrays;
 import java.util.List;
-import model.image.Image;
+import model.image.Layer;
 import model.pixel.Pixel;
 
 /**
@@ -27,7 +27,7 @@ public abstract class AbstractColorOp implements Operation {
    * Applies operation to basic image given.
    * @param img the image itself.
    */
-  public List<List<Pixel>> applyToBasic(Image img) {
+  public List<List<Pixel>> applyToBasic(Layer img) {
     List<List<Pixel>> pixels = img.getPixels();
     for (List<Pixel> row : pixels) {
       for (Pixel p : row) {

@@ -1,7 +1,7 @@
 package model.operation;
 
 import java.util.List;
-import model.image.Image;
+import model.image.Layer;
 import model.pixel.Pixel;
 
 /**
@@ -14,5 +14,5 @@ public interface Operation {
    * @param img the image that is being changed.
    * @return a list of list of pixels
    */
-  List<List<Pixel>> applyToBasic(Image img);
+  List<List<Pixel>> applyToBasic(Layer img);
 }

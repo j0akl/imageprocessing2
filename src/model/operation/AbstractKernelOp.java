@@ -2,7 +2,7 @@ package model.operation;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.image.Image;
+import model.image.Layer;
 import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 
@@ -63,7 +63,7 @@ public class AbstractKernelOp implements Operation {
    * @return the new list of list of pixels.
    */
   @Override
-  public List<List<Pixel>> applyToBasic(Image img) {
+  public List<List<Pixel>> applyToBasic(Layer img) {
     List<List<Pixel>> pixels = img.getPixels();
     List<List<Pixel>> newPixels = new ArrayList<>();
     for (int j = 0; j < pixels.size(); j++) {

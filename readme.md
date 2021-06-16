@@ -32,6 +32,15 @@ for any size matrix. We decided to abstract matrix multiplication out to a stati
 
 Clamp was also sent to a static util, it clamps the value of a double[] to [0, 255].
 
+## Changelog
+### Week 2
+
+- BasicImage became Layer
+  - BasicImage is basically a layer already, just changed the name
+- Added visibility functionality to Layer
+- Changed getPixels to return a deep copy of the pixels
+- Added the copy() method to the layer class
+
 
 ## Citations
 
