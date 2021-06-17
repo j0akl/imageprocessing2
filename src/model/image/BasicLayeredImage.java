@@ -1,11 +1,21 @@
 package model.image;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.BaseStream;
+import model.operation.Operation;
+import model.pixel.BasicPixel;
+import model.pixel.Pixel;
 
 public class BasicLayeredImage implements LayeredImage {
 
@@ -24,6 +34,32 @@ public class BasicLayeredImage implements LayeredImage {
     base.generateCheckerboard(w, h, new double[] {255., 255., 255.});
     layers.put("Base Layer", base);
     selectedLayer = "Base";
+  }
+
+  public BasicLayeredImage(String directory) throws IOException, FileNotFoundException {
+    filename = directory;
+    layers = new LinkedHashMap<>();
+    File config = new File(directory + "/config.txt");
+    BufferedReader configReader = new BufferedReader(new FileReader(config));
+    String widthAndHeight = configReader.readLine();
+    String[] wh = widthAndHeight.split(" ");
+    width = Integer.parseInt(wh[0]);
+    height = Integer.parseInt(wh[1]);
+    String line = configReader.readLine();
+    String layername = "";
+    while (line != null) {
+      Pattern pattern = Pattern.compile("/(.*?)$");
+      Matcher matcher = pattern.matcher(line);
+      if (matcher.find())
+      {
+        layername = matcher.group(1);
+      } else {
+        throw new IllegalStateException("Could not get the layername from the config file");
+      }
+      layers.put(layername, new BasicLayer(line));
+      line = configReader.readLine();
+    }
+    selectedLayer = layername;
   }
 
   public void selectLayer(String layername) throws IllegalArgumentException {
@@ -112,12 +148,72 @@ public class BasicLayeredImage implements LayeredImage {
   }
 
   @Override
-  public void load(String directory) {
+  public void addFilter(Operation op) {
+    layers.get(selectedLayer).apply(op);
   }
 
-  @Override
-  public void flatten(BlendType t) {
+  private void flattenAddLayers() {
+    Layer black = new BasicLayer();
+    black.generateCheckerboard(width, height, new double [] {0.,0.,0.});
+    List<List<Pixel>> constructedLayerPixels = black.getPixels();
+    for (Map.Entry<String, Layer> layerEntry : layers.entrySet()) {
+      List<List<Pixel>> toAdd = layerEntry.getValue().getPixels();
+      for (int j = 0; j < toAdd.size(); j++) {
+        List<Pixel> rowToAdd = toAdd.get(j);
+        List<Pixel> rowToReceive = constructedLayerPixels.get(j);
+        for (int i = 0; i < toAdd.get(0).size(); i++) {
+          // TODO remove addpixels and do the math here
+          double[] baseRGB = rowToReceive.get(i).getRGB();
+          double[] addRGB = rowToAdd.get(i).getRGB();
+          double[] rgb = new double[] {
+              baseRGB[0] + addRGB[0],
+              baseRGB[1] + addRGB[1],
+              baseRGB[2] + addRGB[2],
 
+          };
+          rowToReceive.set(i, new BasicPixel(rgb[0], rgb[1], rgb[2]));
+        }
+      }
+    }
+    layers.put("Flattened", new BasicLayer(constructedLayerPixels));
+  }
+
+  private void flattenAvgLayers() {
+    List<List<double[]>> sum = new ArrayList<>();
+    for (int i = 0; i < height; i++) {
+      sum.add(new ArrayList<>());
+      List<double[]> row = sum.get(i);
+      for (int j = 0; j < width; j++) {
+        double[] zeros = new double[3];
+        row.add(zeros);
+      }
+    }
+    for (Map.Entry<String, Layer> layerEntry : layers.entrySet()) {
+      Layer layer = layerEntry.getValue();
+      List<List<Pixel>> pixels = layer.getPixels();
+      for (int j = 0; j < height; j++) {
+        List<Pixel> row = pixels.get(j);
+        for (int i = 0; i < width; i++) {
+          double[] rgb = row.get(i).getRGB();
+          for (int r = 0; r < 3; r++) {
+            sum.get(j).get(i)[r] += rgb[r];
+          }
+        }
+      }
+    }
+    List<List<Pixel>> grid = new ArrayList<>();
+    for (int j = 0; j < height; j++) {
+      grid.add(new ArrayList<>());
+      List<Pixel> row = grid.get(j);
+      for (int i = 0; i < width; i++) {
+        for (int r = 0; r < 3; r++) {
+          sum.get(j).get(i)[r] /= layers.size();
+        }
+        double[] pixelVal = sum.get(j).get(i);
+        row.add(new BasicPixel(pixelVal[0], pixelVal[1], pixelVal[2]));
+      }
+    }
+    layers.put("Flattened", new BasicLayer(grid));
   }
 
   @Override

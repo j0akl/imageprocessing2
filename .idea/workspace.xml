@@ -2,97 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/image/BlendType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/image/ImageFileType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/image/LayeredImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/buck.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/buckBLUR.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/buckGREYSCALE.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/buckSEPIA.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/buckSHARPEN.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/snail.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/snailBLUR.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/snailGREYSCALE.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/snailSEPIA.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/res/snailSHARPEN.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/image/BasicImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/image/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/AbstractColorOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/AbstractKernelOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/Blur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/Greyscale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/Operation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/OperationFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/Sepia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/operation/Sharpen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/pixel/BasicPixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/pixel/Pixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/utils/ImageUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/src/model/utils/Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestBasicPixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestBlur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestGreyscale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestPixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestSepia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestSharpen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2/test/TestUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 3.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 4.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 5.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 6.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 7.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/BasicImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/LayerImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/operation/AbstractColorOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/AbstractColorOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/operation/AbstractKernelOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/AbstractKernelOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/operation/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/utils/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/utils/ImageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/Archive.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/buck.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/buckBLUR.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/buckGREYSCALE.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/buckSEPIA.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/buckSHARPEN.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/snail.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/snailBLUR.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/snailGREYSCALE.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/snailSEPIA.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/res/snailSHARPEN.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/image/BasicImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/image/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/AbstractColorOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/AbstractKernelOp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/Blur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/Greyscale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/Operation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/OperationFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/Sepia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/operation/Sharpen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/pixel/BasicPixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/pixel/Pixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/utils/ImageUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/src/model/utils/Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestBasicPixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestBlur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestGreyscale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestPixel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestSepia.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestSharpen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission/test/TestUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/LayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/LayeredImage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,19 +45,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager" selected="JUnit.TestLayer">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in imageprocessing2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="imageprocessing2" />
       <option name="PACKAGE_NAME" value="" />
@@ -214,6 +114,7 @@
       <workItem from="1623791150790" duration="44000" />
       <workItem from="1623875956918" duration="202000" />
       <workItem from="1623876217993" duration="5690000" />
+      <workItem from="1623947569289" duration="4960000" />
     </task>
     <servers />
   </component>

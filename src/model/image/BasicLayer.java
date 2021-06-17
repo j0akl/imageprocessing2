@@ -36,11 +36,12 @@ public class BasicLayer implements Layer {
   }
 
   /**
-   * Private constructor used in copy() to create a new layer
-   * with the copied pixels.
+   * Constructor used in copy() to create a new layer
+   * with the copied pixels. Also used in Layer.flatten() to
+   * create a new layer from the constructed pixel values.
    * @param grid - a deep copy of the pixels in an image to copy
    */
-  private BasicLayer(List<List<Pixel>> grid) {
+  public BasicLayer(List<List<Pixel>> grid) {
     filename = null;
     this.grid = grid;
     history = new Stack<>();

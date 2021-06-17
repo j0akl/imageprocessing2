@@ -2,6 +2,7 @@ package model.image;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import model.operation.Operation;
 
 public interface LayeredImage {
 
@@ -18,6 +19,8 @@ public interface LayeredImage {
 
   void remove() throws IllegalArgumentException;
 
+  void addFilter(Operation op);
+
   void changeVisibility();
 
   void generateCheckerboard();
@@ -25,10 +28,6 @@ public interface LayeredImage {
   void save() throws IllegalStateException, IOException;
 
   void saveAs(String filename) throws IOException, IllegalArgumentException;
-
-  void load(String directory);
-
-  void flatten(BlendType t);
 
   void export();
 
