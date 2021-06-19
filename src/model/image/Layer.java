@@ -6,7 +6,7 @@ import model.operation.Operation;
 import model.pixel.Pixel;
 
 /**
- * Image interface.
+ * The Layer interface to represent individual images.
  */
 public interface Layer {
   /**

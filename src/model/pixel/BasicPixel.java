@@ -5,7 +5,9 @@ import static model.utils.Utils.clamp;
 import java.util.Objects;
 
 /**
- * Basic pixel class that implements the pixel.
+ * Basic pixel class that implements the pixel. The purpose of this class
+ * is to handle the individual pixel, retrieving the RGB values and changing
+ * them with new given values.
  */
 public class BasicPixel implements Pixel {
 

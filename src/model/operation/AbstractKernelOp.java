@@ -7,7 +7,9 @@ import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 
 /**
- * Abstract class for kernel operation.
+ * Abstract class for kernel operation. This will handle applying the kernel to
+ * basic images and individual pixels.
+ *
  */
 public class AbstractKernelOp implements Operation {
 
