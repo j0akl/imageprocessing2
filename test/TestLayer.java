@@ -7,13 +7,14 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+import kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf.StringTableTypes.Record.Operation;
 import model.image.BasicLayer;
 import model.image.Layer;
 import model.operation.Blur;
-import model.operation.Operation;
 //import model.operation.OperationFactory;
 //import model.operation.Sepia;
 import model.pixel.Pixel;
@@ -53,4 +54,25 @@ public class TestLayer {
       }
     }
   }
+
+  @Test
+  public void testGetVisibility(){
+    Layer layer = new BasicLayer();
+    assertEquals(layer.getVisibility(), true);
+  }
+
+  @Test
+  public void testGetPixels(){
+    Layer layer = new BasicLayer();
+    System.out.println(layer.getPixels());
+    assertEquals(layer.getPixels(), new ArrayList<>());
+  }
+
+  @Test
+  public void testApply(){
+    Blur blur = new Blur();
+    Layer layer = new BasicLayer();
+    layer.apply(blur);
+  }
+
 }
