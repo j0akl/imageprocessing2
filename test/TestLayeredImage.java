@@ -39,7 +39,7 @@ public class TestLayeredImage {
       snailLayer1 = new BasicLayer("res/snail.ppm");
       snailLayer2 = new BasicLayer("res/snailBLUR.ppm");
       snailLayer3 = new BasicLayer("res/snailGREYSCALE.ppm");
-    } catch (FileNotFoundException e) {
+    } catch (IOException e) {
       throw new IllegalStateException("Could not add layers");
     }
   }
@@ -57,7 +57,7 @@ public class TestLayeredImage {
 
   @Test
   // test adding a layer from an image file
-  public void testAddLayer() throws FileNotFoundException {
+  public void testAddLayer() throws IOException {
     snailLayeredImage.selectLayer("snail1");
     Layer snail = new BasicLayer("res/snail.ppm");
     assertEquals("Layer not imported correctly",
@@ -67,7 +67,7 @@ public class TestLayeredImage {
 
   @Test(expected = IllegalArgumentException.class)
   // test adding a layer with the wrong dimensions
-  public void testWrongDimensionLayer() throws FileNotFoundException {
+  public void testWrongDimensionLayer() throws IOException {
     baseLayeredImage.addLayer("test", "res/snail.ppm");
   }
 

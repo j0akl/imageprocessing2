@@ -3,7 +3,6 @@ package model.image;
 import static utils.Utils.loadLayeredImage;
 import static utils.Utils.saveLayeredImage;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -81,7 +80,7 @@ public class BasicLayeredImage implements LayeredImage {
 
   @Override
   public void addLayer(String layername, String filename)
-      throws IllegalArgumentException, FileNotFoundException {
+      throws IllegalArgumentException, IOException {
     validateLayername(layername);
     Layer layer = new BasicLayer(filename);
     if (height != layer.getPixels().size() || width != layer.getPixels().get(0).size()) {

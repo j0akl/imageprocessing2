@@ -2,6 +2,8 @@ package model.image;
 
 import static utils.ImageUtil.readPPM;
 import static utils.Utils.clamp;
+import static utils.Utils.loadLayer;
+import static utils.Utils.saveLayer;
 import static utils.Utils.saveLayerPPM;
 
 import java.io.FileNotFoundException;
@@ -55,9 +57,9 @@ public class BasicLayer implements Layer {
    * @throws FileNotFoundException throws a file not located exception.
    * @throws IllegalStateException throws an illegal state exception.
    */
-  public BasicLayer(String filename) throws FileNotFoundException, IllegalStateException {
+  public BasicLayer(String filename) throws IOException, IllegalStateException {
     this.filename = filename;
-    grid = readPPM(filename);
+    grid = loadLayer(filename);
     history = new Stack<>();
     isVisible = true;
   }
@@ -87,7 +89,7 @@ public class BasicLayer implements Layer {
    * @throws IOException exception thrown if unable to save.
    */
   public void saveAs(String filename) throws IOException {
-    saveLayerPPM(filename, this);
+    saveLayer(filename, this);
     this.filename = filename;
   }
 

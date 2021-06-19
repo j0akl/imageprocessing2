@@ -17,7 +17,7 @@ public interface LayeredImage {
   void addLayer(String layername) throws IllegalArgumentException;
 
   void addLayer(String layerName, String layername)
-      throws IllegalArgumentException, FileNotFoundException;
+      throws IllegalArgumentException, IOException;
 
   void copyLayer(String newname) throws IllegalArgumentException;
 

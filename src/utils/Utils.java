@@ -1,19 +1,28 @@
 package utils;
 
+import static utils.ImageUtil.readPPM;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
 import model.image.BasicLayer;
 import model.image.Layer;
+import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 
 /**
@@ -54,6 +63,57 @@ public class Utils {
         arr[i] = 255;
       }
     }
+  }
+
+  private static boolean checkPPM(String filename) throws IllegalArgumentException {
+    if (filename == null) {
+      throw new IllegalArgumentException("Filename was null");
+    }
+    String tail = filename.substring(filename.length() - 4);
+    return tail.equalsIgnoreCase(".ppm");
+  }
+
+  public static void saveLayer(String filename, Layer layer) throws IOException {
+    if (checkPPM(filename)) {
+      saveLayerPPM(filename, layer);
+      return;
+    }
+    List<List<Pixel>> grid = layer.getPixels();
+    int h = grid.size();
+    int w = grid.get(0).size();
+    BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+    String tail = filename.substring(filename.length() - 3);
+    for (int j = 0; j < h; j++) {
+      for (int i = 0; i < w; i++) {
+        Pixel pixel = grid.get(j).get(i);
+        double[] fromPixel = pixel.getRGB();
+        int rgb = (int) fromPixel[0];
+        rgb = (int) ((rgb << 8) + fromPixel[1]);
+        rgb = (int) ((rgb << 8) + fromPixel[2]);
+        img.setRGB(i, j, rgb);
+      }
+    }
+    File f = new File(filename);
+    ImageIO.write(img, tail, f);
+  }
+
+  public static List<List<Pixel>> loadLayer(String filename)
+      throws IOException, IllegalArgumentException {
+    if (checkPPM(filename)) {
+      return readPPM(filename);
+    }
+    List<List<Pixel>> grid = new ArrayList<>();
+    BufferedImage img = ImageIO.read(new File(filename));
+    for (int j = 0; j < img.getHeight(); j++) {
+      List<Pixel> row = new ArrayList<>();
+      for (int i = 0; i < img.getWidth(); i++) {
+        int pixel = img.getRGB(i, j);
+        Color color = new Color(pixel);
+        row.add(new BasicPixel(color.getRed(), color.getGreen(), color.getBlue()));
+      }
+      grid.add(row);
+    }
+    return grid;
   }
 
   public static void saveLayerPPM(String filename, Layer layer) throws IOException {

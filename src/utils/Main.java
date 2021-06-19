@@ -1,6 +1,7 @@
 package utils;
 
 import static model.operation.OperationFactory.createOp;
+import static utils.Utils.loadLayer;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,20 +14,20 @@ import model.operation.OperationFactory.OpType;
 
 public class Main {
 
-  private void mainFromPt1(String[] args) {
+  private static void mainFromPt1(String[] args) {
     String filename;
 
     if (args.length > 0) {
       filename = args[0];
     } else {
-      filename = "res/snail.ppm";
+      filename = "res/buck.ppm";
     }
 
     for (OpType op : OpType.values()) {
       Layer img;
       try {
         img = new BasicLayer(filename);
-      } catch (FileNotFoundException e) {
+      } catch (IOException e) {
         System.out.println("File not found!");
         return;
       }
@@ -54,7 +55,7 @@ public class Main {
       layered.addLayer("snail1", "res/snail.ppm");
       layered.addLayer("snail2", "res/snailBLUR.ppm");
       layered.addLayer("snail3", "res/snailGREYSCALE.ppm");
-    } catch (FileNotFoundException e) {
+    } catch (IOException e) {
       System.out.println(e.getMessage());
     }
 
@@ -78,7 +79,7 @@ public class Main {
    * @param args filename as string array of arguments.
    */
   public static void main(String[] args) {
-    mainFromPt2(args);
+    mainFromPt1(args);
   }
 
 }
