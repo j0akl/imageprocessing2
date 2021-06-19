@@ -1,7 +1,8 @@
 package model.utils;
 
 /**
- * Utils class.
+ * Utils class which is necessary for conducting the math and clamping
+ * so values do not go out of bound.
  */
 public class Utils {
 

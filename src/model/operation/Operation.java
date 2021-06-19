@@ -5,7 +5,8 @@ import model.image.Layer;
 import model.pixel.Pixel;
 
 /**
- * Operation interface.
+ * Operation interface which lists the method to apply the operation
+ * to a provided image.
  */
 public interface Operation {
 

@@ -1,7 +1,8 @@
 package model.operation;
 
 /**
- * Blur class extending the kernel operation class.
+ * Blur class extending the kernel operation class. The purpose of this class
+ * is to apply the kernel algorithm to images to blur them.
  */
 public class Blur extends AbstractKernelOp {
 
