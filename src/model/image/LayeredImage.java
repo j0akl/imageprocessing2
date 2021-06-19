@@ -33,8 +33,8 @@ public interface LayeredImage {
 
   void saveAs(String filename) throws IOException, IllegalArgumentException;
 
-  void export();
+  void export(BlendType t) throws IOException;
 
-  void exportAs(String filename);
+  void exportAs(String filename, BlendType t) throws IOException;
 
 }

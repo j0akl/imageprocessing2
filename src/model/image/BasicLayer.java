@@ -69,7 +69,6 @@ public class BasicLayer implements Layer {
     isVisible = !isVisible;
   }
 
-
   /**
    * Saves the image with the file name.
    * @throws IOException throws exception if unable to save.
@@ -85,6 +84,7 @@ public class BasicLayer implements Layer {
    * @throws IOException exception thrown if unable to save.
    */
   public void saveAs(String filename) throws IOException {
+    saveLayerPPM(filename, this);
     this.filename = filename;
     saveImage(filename, this);
   }

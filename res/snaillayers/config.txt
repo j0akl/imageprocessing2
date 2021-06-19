@@ -1,0 +1,5 @@
+256 256
+res/snaillayers/Base Layer.ppm
+res/snaillayers/snail1.ppm
+res/snaillayers/snail2.ppm
+res/snaillayers/snail3.ppm
