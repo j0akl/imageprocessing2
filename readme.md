@@ -40,6 +40,8 @@ Clamp was also sent to a static util, it clamps the value of a double[] to [0, 2
 - Added visibility functionality to Layer
 - Changed getPixels to return a deep copy of the pixels
 - Added the copy() method to the layer class
+- added .equals and .hashCode to pixel
+- added a constructor to layer to take pixels
 
 
 ## Citations
