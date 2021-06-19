@@ -169,7 +169,6 @@ public class BasicLayeredImage implements LayeredImage {
               baseRGB[0] + addRGB[0],
               baseRGB[1] + addRGB[1],
               baseRGB[2] + addRGB[2],
-
           };
           rowToReceive.set(i, new BasicPixel(rgb[0], rgb[1], rgb[2]));
         }

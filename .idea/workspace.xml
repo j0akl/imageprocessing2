@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/LayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/LayeredImage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +113,7 @@
       <workItem from="1623875956918" duration="202000" />
       <workItem from="1623876217993" duration="5690000" />
       <workItem from="1623947569289" duration="4960000" />
+      <workItem from="1624122967491" duration="785000" />
     </task>
     <servers />
   </component>
