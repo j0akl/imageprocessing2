@@ -42,6 +42,7 @@ Clamp was also sent to a static util, it clamps the value of a double[] to [0, 2
 - Added the copy() method to the layer class
 - added .equals and .hashCode to pixel
 - added a constructor to layer to take pixels
+- moved file i/o to a static method (from the model)
 
 
 ## Citations

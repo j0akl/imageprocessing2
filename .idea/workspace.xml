@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/TestLayeredImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/utils/SaveImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Archive 2.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/LayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/LayeredImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/pixel/BasicPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixel/BasicPixel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
