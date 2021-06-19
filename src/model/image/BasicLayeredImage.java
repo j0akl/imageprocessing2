@@ -1,20 +1,14 @@
 package model.image;
 
-import static model.utils.Utils.loadLayeredImage;
-import static model.utils.Utils.saveLayeredImage;
+import static utils.Utils.loadLayeredImage;
+import static utils.Utils.saveLayeredImage;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import model.operation.Operation;
 import model.pixel.BasicPixel;
 import model.pixel.Pixel;
@@ -133,6 +127,7 @@ public class BasicLayeredImage implements LayeredImage {
   @Override
   public void saveAs(String name) throws IllegalArgumentException, IOException {
     saveLayeredImage(name, width, height, layers);
+    filename = name;
   }
 
   @Override
@@ -146,19 +141,21 @@ public class BasicLayeredImage implements LayeredImage {
     List<List<Pixel>> constructedLayerPixels = black.getPixels();
     for (Map.Entry<String, Layer> layerEntry : layers.entrySet()) {
       List<List<Pixel>> toAdd = layerEntry.getValue().getPixels();
-      for (int j = 0; j < toAdd.size(); j++) {
-        List<Pixel> rowToAdd = toAdd.get(j);
-        List<Pixel> rowToReceive = constructedLayerPixels.get(j);
-        for (int i = 0; i < toAdd.get(0).size(); i++) {
-          // TODO remove addpixels and do the math here
-          double[] baseRGB = rowToReceive.get(i).getRGB();
-          double[] addRGB = rowToAdd.get(i).getRGB();
-          double[] rgb = new double[] {
-              baseRGB[0] + addRGB[0],
-              baseRGB[1] + addRGB[1],
-              baseRGB[2] + addRGB[2],
-          };
-          rowToReceive.set(i, new BasicPixel(rgb[0], rgb[1], rgb[2]));
+      if (layerEntry.getValue().getVisibility()) {
+        for (int j = 0; j < toAdd.size(); j++) {
+          List<Pixel> rowToAdd = toAdd.get(j);
+          List<Pixel> rowToReceive = constructedLayerPixels.get(j);
+          for (int i = 0; i < toAdd.get(0).size(); i++) {
+            // TODO remove addpixels and do the math here
+            double[] baseRGB = rowToReceive.get(i).getRGB();
+            double[] addRGB = rowToAdd.get(i).getRGB();
+            double[] rgb = new double[] {
+                baseRGB[0] + addRGB[0],
+                baseRGB[1] + addRGB[1],
+                baseRGB[2] + addRGB[2],
+            };
+            rowToReceive.set(i, new BasicPixel(rgb[0], rgb[1], rgb[2]));
+          }
         }
       }
     }
@@ -177,13 +174,15 @@ public class BasicLayeredImage implements LayeredImage {
     }
     for (Map.Entry<String, Layer> layerEntry : layers.entrySet()) {
       Layer layer = layerEntry.getValue();
-      List<List<Pixel>> pixels = layer.getPixels();
-      for (int j = 0; j < height; j++) {
-        List<Pixel> row = pixels.get(j);
-        for (int i = 0; i < width; i++) {
-          double[] rgb = row.get(i).getRGB();
-          for (int r = 0; r < 3; r++) {
-            sum.get(j).get(i)[r] += rgb[r];
+      if (layer.getVisibility()) {
+        List<List<Pixel>> pixels = layer.getPixels();
+        for (int j = 0; j < height; j++) {
+          List<Pixel> row = pixels.get(j);
+          for (int i = 0; i < width; i++) {
+            double[] rgb = row.get(i).getRGB();
+            for (int r = 0; r < 3; r++) {
+              sum.get(j).get(i)[r] += rgb[r];
+            }
           }
         }
       }

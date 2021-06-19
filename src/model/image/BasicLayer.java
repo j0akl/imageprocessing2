@@ -1,8 +1,8 @@
 package model.image;
 
 import static utils.ImageUtil.readPPM;
-import static utils.SaveImage.saveImage;
 import static utils.Utils.clamp;
+import static utils.Utils.saveLayerPPM;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -89,7 +89,6 @@ public class BasicLayer implements Layer {
   public void saveAs(String filename) throws IOException {
     saveLayerPPM(filename, this);
     this.filename = filename;
-    saveImage(filename, this);
   }
 
   /**

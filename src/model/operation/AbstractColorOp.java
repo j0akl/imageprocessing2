@@ -1,6 +1,6 @@
 package model.operation;
 
-import static model.utils.Utils.multVectorBy3x3Matrix;
+import static utils.Utils.multVectorBy3x3Matrix;
 
 //import java.util.Arrays;
 import java.util.List;

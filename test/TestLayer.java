@@ -1,17 +1,9 @@
-//import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertThrows;
-
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
-import kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf.StringTableTypes.Record.Operation;
 import model.image.BasicLayer;
 import model.image.Layer;
 import model.operation.Blur;
@@ -19,7 +11,6 @@ import model.operation.Blur;
 //import model.operation.Sepia;
 import model.pixel.Pixel;
 //import org.junit.Assert;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -58,7 +49,7 @@ public class TestLayer {
   @Test
   public void testGetVisibility(){
     Layer layer = new BasicLayer();
-    assertEquals(layer.getVisibility(), true);
+    assertTrue(layer.getVisibility());
   }
 
   @Test
