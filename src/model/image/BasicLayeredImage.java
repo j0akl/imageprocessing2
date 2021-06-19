@@ -1,5 +1,8 @@
 package model.image;
 
+import static model.utils.Utils.loadLayeredImage;
+import static model.utils.Utils.saveLayeredImage;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,30 +38,17 @@ public class BasicLayeredImage implements LayeredImage {
     selectedLayer = "Base Layer";
   }
 
-  public BasicLayeredImage(String directory) throws IOException, FileNotFoundException {
+  public BasicLayeredImage(String directory) throws IOException, IllegalStateException {
     filename = directory;
-    layers = new LinkedHashMap<>();
-    File config = new File(directory + "/config.txt");
-    BufferedReader configReader = new BufferedReader(new FileReader(config));
-    String widthAndHeight = configReader.readLine();
-    String[] wh = widthAndHeight.split(" ");
-    width = Integer.parseInt(wh[0]);
-    height = Integer.parseInt(wh[1]);
-    String line = configReader.readLine();
-    String layername = "";
-    while (line != null) {
-      Pattern pattern = Pattern.compile("/(.*?)$");
-      Matcher matcher = pattern.matcher(line);
-      if (matcher.find())
-      {
-        layername = matcher.group(1);
-      } else {
-        throw new IllegalStateException("Could not get the layername from the config file");
-      }
-      layers.put(layername, new BasicLayer(line));
-      line = configReader.readLine();
+    Map<String, Object> fields = loadLayeredImage(directory);
+    try {
+      width = (int) fields.get("width");
+      height = (int) fields.get("height");
+      layers = (Map<String, Layer>) fields.get("layers");
+      selectedLayer = (String) fields.get("layername");
+    } catch (ClassCastException e) {
+      throw new IllegalStateException("Fields could not be loaded");
     }
-    selectedLayer = layername;
   }
 
   public void selectLayer(String layername) throws IllegalArgumentException {
@@ -142,17 +132,7 @@ public class BasicLayeredImage implements LayeredImage {
 
   @Override
   public void saveAs(String name) throws IllegalArgumentException, IOException {
-    File dir = new File(name);
-    dir.mkdirs();
-    File configFile = new File(name + "/" + "config.txt");
-    FileWriter textWriter = new FileWriter(configFile);
-    textWriter.write("" + width + " " + height);
-    for (Map.Entry<String, Layer> layerItem : layers.entrySet()) {
-      Layer layer = layerItem.getValue();
-      String nameToSaveLayerAs = name + "/" + layerItem.getKey() + ".ppm";
-      layer.saveAs(nameToSaveLayerAs);
-      textWriter.write(nameToSaveLayerAs + "\n");
-    }
+    saveLayeredImage(name, width, height, layers);
   }
 
   @Override
@@ -160,7 +140,7 @@ public class BasicLayeredImage implements LayeredImage {
     layers.get(selectedLayer).apply(op);
   }
 
-  private void flattenAddLayers() {
+  private Layer flattenAddLayers() {
     Layer black = new BasicLayer();
     black.generateCheckerboard(width, height, new double [] {0.,0.,0.});
     List<List<Pixel>> constructedLayerPixels = black.getPixels();
@@ -182,10 +162,10 @@ public class BasicLayeredImage implements LayeredImage {
         }
       }
     }
-    layers.put("Flattened", new BasicLayer(constructedLayerPixels));
+    return new BasicLayer(constructedLayerPixels);
   }
 
-  private void flattenAvgLayers() {
+  private Layer flattenAvgLayers() {
     List<List<double[]>> sum = new ArrayList<>();
     for (int i = 0; i < height; i++) {
       sum.add(new ArrayList<>());
@@ -220,16 +200,23 @@ public class BasicLayeredImage implements LayeredImage {
         row.add(new BasicPixel(pixelVal[0], pixelVal[1], pixelVal[2]));
       }
     }
-    layers.put("Flattened", new BasicLayer(grid));
+    return new BasicLayer(grid);
   }
 
   @Override
-  public void export() {
-
+  public void export(BlendType t) throws IOException {
+    exportAs(filename, t);
   }
 
   @Override
-  public void exportAs(String filename) {
-
+  public void exportAs(String filename, BlendType t) throws IOException {
+    switch (t) {
+      case AVG:
+        flattenAvgLayers().saveAs(filename);
+        break;
+      case ADD:
+        flattenAddLayers().saveAs(filename);
+        break;
+    }
   }
 }

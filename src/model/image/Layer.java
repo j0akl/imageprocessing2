@@ -36,6 +36,7 @@ public interface Layer {
    */
   Layer copy();
 
+
   /**
    * Changes the visibility of a layer.
    */

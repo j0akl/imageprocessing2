@@ -1,6 +1,6 @@
 package model.operation;
 
-import static model.utils.Utils.matmul;
+import static model.utils.Utils.multVectorBy3x3Matrix;
 
 //import java.util.Arrays;
 import java.util.List;
@@ -31,7 +31,7 @@ public abstract class AbstractColorOp implements Operation {
     List<List<Pixel>> pixels = img.getPixels();
     for (List<Pixel> row : pixels) {
       for (Pixel p : row) {
-        double[] change = matmul(matrix, p.getRGB());
+        double[] change = multVectorBy3x3Matrix(matrix, p.getRGB());
         p.changeRGB(change);
       }
     }

@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/TestLayeredImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/utils/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Archive 2.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/LayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/LayeredImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/pixel/BasicPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixel/BasicPixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/operation/AbstractColorOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/AbstractColorOp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/utils/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/utils/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayeredImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +62,20 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.TestLayeredImage.testRemoveBaseLayer">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.utils.Main" />
+      <module name="imageprocessing2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -70,51 +87,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLayeredImage.testNonExistentSelectLayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLayeredImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="imageprocessing2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestLayeredImage" />
-      <option name="METHOD_NAME" value="testNonExistentSelectLayer" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLayeredImage.testGenerateCheckerboard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="imageprocessing2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestLayeredImage" />
+      <option name="METHOD_NAME" value="testGenerateCheckerboard" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLayeredImage.testNullSelectLayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLayeredImage.testLoadingLayeredImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="imageprocessing2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestLayeredImage" />
-      <option name="METHOD_NAME" value="testNullSelectLayer" />
+      <option name="METHOD_NAME" value="testLoadingLayeredImage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLayeredImage.testRemoveBaseLayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLayeredImage.testSaveAndLoadLayeredImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="imageprocessing2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestLayeredImage" />
-      <option name="METHOD_NAME" value="testRemoveBaseLayer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestLayeredImage.testRemoveLayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="imageprocessing2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestLayeredImage" />
-      <option name="METHOD_NAME" value="testRemoveLayer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestLayeredImage.testSelectLayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="imageprocessing2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestLayeredImage" />
-      <option name="METHOD_NAME" value="testSelectLayer" />
+      <option name="METHOD_NAME" value="testSaveAndLoadLayeredImage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,11 +128,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestLayeredImage.testRemoveBaseLayer" />
-        <item itemvalue="JUnit.TestLayeredImage.testRemoveLayer" />
-        <item itemvalue="JUnit.TestLayeredImage.testNonExistentSelectLayer" />
-        <item itemvalue="JUnit.TestLayeredImage.testNullSelectLayer" />
-        <item itemvalue="JUnit.TestLayeredImage.testSelectLayer" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestLayeredImage" />
+        <item itemvalue="JUnit.TestLayeredImage.testSaveAndLoadLayeredImage" />
+        <item itemvalue="JUnit.TestLayeredImage.testLoadingLayeredImage" />
+        <item itemvalue="JUnit.TestLayeredImage.testGenerateCheckerboard" />
       </list>
     </recent_temporary>
   </component>

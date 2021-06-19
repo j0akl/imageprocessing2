@@ -1,7 +1,7 @@
 import static model.utils.Utils.clamp;
 import static org.junit.Assert.assertArrayEquals;
 //import static org.junit.Assert.assertEquals;
-import static model.utils.Utils.matmul;
+import static model.utils.Utils.multVectorBy3x3Matrix;
 
 //import java.util.List;
 import org.junit.Assert;
@@ -30,7 +30,7 @@ public class TestUtils {
   // test for matmul
   @Test
   public void testMatmul() {
-    double[] result = matmul(basicMatrix, testRGB);
+    double[] result = multVectorBy3x3Matrix(basicMatrix, testRGB);
     assertArrayEquals("matmul gave wrong values.",
         new double[] { 85.0, 190.0, 115.0},
         result,
@@ -40,7 +40,7 @@ public class TestUtils {
   // test for matrixMutliplication 3x3
   @Test
   public void testMatmul3x3() {
-    double[] temp = matmul(basicMatrix, testRGB);
+    double[] temp = multVectorBy3x3Matrix(basicMatrix, testRGB);
     System.out.println(temp[0]);
     System.out.println(temp[1]);
     System.out.println(temp[2]);

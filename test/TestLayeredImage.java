@@ -2,11 +2,13 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import model.image.BasicLayer;
 import model.image.BasicLayeredImage;
 import model.image.Layer;
 import model.image.LayeredImage;
+import model.operation.Blur;
 import model.pixel.Pixel;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,10 +18,30 @@ public class TestLayeredImage {
   LayeredImage baseLayeredImage;
   LayeredImage snailLayeredImage;
 
+  Layer snailLayer1;
+  Layer snailLayer2;
+  Layer snailLayer3;
+
+  Layer checkerboard;
+
   @Before
   public void setup() {
     baseLayeredImage = new BasicLayeredImage(5, 5);
     snailLayeredImage = new BasicLayeredImage(256, 256);
+
+    checkerboard = new BasicLayer();
+    checkerboard.generateCheckerboard(5, 5, new double[] {255., 255., 255.});
+
+    try {
+      snailLayeredImage.addLayer("snail1", "res/snail.ppm");
+      snailLayeredImage.addLayer("snail2", "res/snailBLUR.ppm");
+      snailLayeredImage.addLayer("snail3", "res/snailGREYSCALE.ppm");
+      snailLayer1 = new BasicLayer("res/snail.ppm");
+      snailLayer2 = new BasicLayer("res/snailBLUR.ppm");
+      snailLayer3 = new BasicLayer("res/snailGREYSCALE.ppm");
+    } catch (FileNotFoundException e) {
+      throw new IllegalStateException("Could not add layers");
+    }
   }
 
   @Test
@@ -27,8 +49,6 @@ public class TestLayeredImage {
   public void testConstructor() {
     baseLayeredImage.selectLayer("Base Layer");
     List<List<Pixel>> basePixels = baseLayeredImage.getPixelsFromSelectedLayer();
-    Layer checkerboard = new BasicLayer();
-    checkerboard.generateCheckerboard(5, 5, new double[] {255., 255., 255.});
     assertEquals("Checkerboard was not generated correctly",
         checkerboard.getPixels(),
         basePixels);
@@ -38,8 +58,7 @@ public class TestLayeredImage {
   @Test
   // test adding a layer from an image file
   public void testAddLayer() throws FileNotFoundException {
-    snailLayeredImage.addLayer("testLayer", "res/snail.ppm");
-    snailLayeredImage.selectLayer("testLayer");
+    snailLayeredImage.selectLayer("snail1");
     Layer snail = new BasicLayer("res/snail.ppm");
     assertEquals("Layer not imported correctly",
         snailLayeredImage.getPixelsFromSelectedLayer(),
@@ -100,5 +119,56 @@ public class TestLayeredImage {
   // test removing base layer
   public void testRemoveBaseLayer() {
     baseLayeredImage.remove();
+  }
+
+  @Test
+  // test adding a filter
+  public void testAddFilter() {
+    baseLayeredImage.addFilter(new Blur());
+    checkerboard.apply(new Blur());
+    assertEquals("Filter not applied to layer",
+        checkerboard.getPixels(),
+        baseLayeredImage.getPixelsFromSelectedLayer());
+  }
+
+  @Test
+  // test generating checkerboard on new layer
+  public void testGenerateCheckerboard() {
+    baseLayeredImage.addLayer("test");
+    baseLayeredImage.selectLayer("test");
+    baseLayeredImage.generateCheckerboard();
+    assertEquals("Checkerboard not generated correctly",
+        checkerboard.getPixels(),
+        baseLayeredImage.getPixelsFromSelectedLayer());
+  }
+
+  @Test
+  // test saving and loading a layered image
+  public void testSaveAndLoadLayeredImage() {
+    try {
+      snailLayeredImage.saveAs("res/snaillayers");
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
+    }
+
+    LayeredImage snailLoaded;
+    try {
+      snailLoaded = new BasicLayeredImage("res/snaillayers");
+    } catch (IOException e) {
+      throw new IllegalStateException("image was not loaded");
+    }
+
+    snailLoaded.selectLayer("snail1");
+    assertEquals("First layer not loaded",
+        snailLayer1.getPixels(),
+        snailLoaded.getPixelsFromSelectedLayer());
+    snailLoaded.selectLayer("snail2");
+    assertEquals("Second layer not loaded",
+        snailLayer2.getPixels(),
+        snailLoaded.getPixelsFromSelectedLayer());
+    snailLoaded.selectLayer("snail3");
+    assertEquals("Third layer not loaded",
+        snailLayer3.getPixels(),
+        snailLoaded.getPixelsFromSelectedLayer());
   }
 }

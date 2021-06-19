@@ -74,36 +74,5 @@ public class ImageUtil {
     return image;
   }
 
-  /**
-   * Main method to test the functionality of the program.
-   *
-   * @param args filename as string array of arguments.
-   */
-  public static void main(String[] args) {
-    String filename;
-
-    if (args.length > 0) {
-      filename = args[0];
-    } else {
-      filename = "res/snail.ppm";
-    }
-
-    for (OpType op : OpType.values()) {
-      Layer img;
-      try {
-        img = new BasicLayer(filename);
-      } catch (FileNotFoundException e) {
-        System.out.println("File not found!");
-        return;
-      }
-      img.apply(createOp(op));
-      try {
-        img.saveAs(filename.substring(0, filename.length() - 4) + op.toString() + ".ppm");
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-        System.out.println("failed");
-      }
-    }
-  }
 }
 

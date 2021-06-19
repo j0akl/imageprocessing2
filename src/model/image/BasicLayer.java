@@ -2,6 +2,7 @@ package model.image;
 
 import static model.utils.ImageUtil.readPPM;
 import static model.utils.Utils.clamp;
+import static model.utils.Utils.saveLayerPPM;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -70,7 +71,6 @@ public class BasicLayer implements Layer {
     isVisible = !isVisible;
   }
 
-
   /**
    * Saves the image with the file name.
    * @throws IOException throws exception if unable to save.
@@ -79,34 +79,6 @@ public class BasicLayer implements Layer {
     saveAs(filename);
   }
 
-  /**
-   * Writes given file in PPM format.
-   * @param f file name user is working with.
-   * @throws IOException  exception thrown if unable to write to PPM format.
-   */
-  private void writeToFile(File f) throws IOException {
-    FileWriter fw = new FileWriter(f);
-    fw.write("P3" + System.lineSeparator());
-    fw.write(grid.get(0).size()
-        + " "
-        + grid.size()
-        + System.lineSeparator());
-    fw.write("255" + System.lineSeparator());
-    for (int j = 0; j < grid.size(); j++) {
-      StringBuilder row = new StringBuilder();
-      for (int i = 0; i < grid.get(0).size(); i++) {
-        double[] rgb = grid.get(j).get(i).getRGB();
-        row.append((int) rgb[0])
-            .append(System.lineSeparator())
-            .append((int) rgb[1])
-            .append(System.lineSeparator())
-            .append((int) rgb[2])
-            .append(System.lineSeparator());
-      }
-      fw.write(row.toString());
-    }
-    fw.close();
-  }
 
   /**
    * Saves the file in a PPM format.
@@ -114,8 +86,7 @@ public class BasicLayer implements Layer {
    * @throws IOException exception thrown if unable to save.
    */
   public void saveAs(String filename) throws IOException {
-    File f = new File(filename);
-    writeToFile(f);
+    saveLayerPPM(filename, this);
     this.filename = filename;
   }
 
