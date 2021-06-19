@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/operation/AbstractColorOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/operation/AbstractColorOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/SaveImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/utils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +55,11 @@
   </component>
   <component name="RunManager" selected="JUnit.TestLayeredImage">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="model.utils.Main" />
+      <option name="MAIN_CLASS_NAME" value="utils.Main" />
       <module name="imageprocessing2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.utils.*" />
+          <option name="PATTERN" value="utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

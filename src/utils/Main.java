@@ -1,8 +1,7 @@
-package model.utils;
+package utils;
 
 import static model.operation.OperationFactory.createOp;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.image.BasicLayer;
