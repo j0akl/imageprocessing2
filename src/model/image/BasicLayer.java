@@ -25,7 +25,7 @@ public class BasicLayer implements Layer {
   private boolean isVisible;
 
   /**
-   *Initializes basic image.
+   * Initializes basic image.
    */
   public BasicLayer() {
     filename = null;
@@ -35,9 +35,9 @@ public class BasicLayer implements Layer {
   }
 
   /**
-   * Constructor used in copy() to create a new layer
-   * with the copied pixels. Also used in Layer.flatten() to
-   * create a new layer from the constructed pixel values.
+   * Constructor used in copy() to create a new layer with the copied pixels. Also used in
+   * Layer.flatten() to create a new layer from the constructed pixel values.
+   *
    * @param grid - a deep copy of the pixels in an image to copy
    */
   public BasicLayer(List<List<Pixel>> grid) {
@@ -50,6 +50,7 @@ public class BasicLayer implements Layer {
 
   /**
    * Constructs a basic image.
+   *
    * @param filename Filename in form of string.
    * @throws FileNotFoundException throws a file not located exception.
    * @throws IllegalStateException throws an illegal state exception.
@@ -71,6 +72,7 @@ public class BasicLayer implements Layer {
 
   /**
    * Saves the image with the file name.
+   *
    * @throws IOException throws exception if unable to save.
    */
   public void save() throws IOException {
@@ -80,6 +82,7 @@ public class BasicLayer implements Layer {
 
   /**
    * Saves the file in a PPM format.
+   *
    * @param filename the file itself as a string.
    * @throws IOException exception thrown if unable to save.
    */
@@ -90,11 +93,11 @@ public class BasicLayer implements Layer {
   }
 
   /**
-   * Creates an image programatically by generating a checkerboard. Half
-   * of the squares will be black, the other will be the color
-   * specified by rgb.
-   * @param x to represent the rows.
-   * @param y to represent the columns.
+   * Creates an image programatically by generating a checkerboard. Half of the squares will be
+   * black, the other will be the color specified by rgb.
+   *
+   * @param x   to represent the rows.
+   * @param y   to represent the columns.
    * @param rgb the color to place in the checkerboard.
    */
   public void generateCheckerboard(int x, int y, double[] rgb) throws IllegalArgumentException {
@@ -120,8 +123,9 @@ public class BasicLayer implements Layer {
   }
 
   /**
-   * Apply given operation given in parameters. Uses helper method
-   * which performs the actual manipulation.
+   * Apply given operation given in parameters. Uses helper method which performs the actual
+   * manipulation.
+   *
    * @param op the operation desired to use.
    */
   public void apply(Operation op) {
@@ -145,5 +149,13 @@ public class BasicLayer implements Layer {
       toReturn.add(row);
     }
     return toReturn;
+  }
+
+  /**
+   * Gets the visibility of the image.
+   * @return the image's condition of visibility.
+   */
+  public boolean getVisibility() {
+    return this.isVisible;
   }
 }

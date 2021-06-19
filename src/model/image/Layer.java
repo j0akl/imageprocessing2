@@ -54,4 +54,10 @@ public interface Layer {
    * @return the list of list of pixels, the grid.
    */
   List<List<Pixel>> getPixels();
+
+  /**
+   * Gets the visibility of the image.
+   * @return the image's condition of visibility.
+   */
+  boolean getVisibility();
 }
