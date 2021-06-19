@@ -1,4 +1,4 @@
-package model.utils;
+package utils;
 
 import java.io.File;
 import java.io.FileWriter;

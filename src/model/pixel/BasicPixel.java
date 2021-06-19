@@ -1,6 +1,6 @@
 package model.pixel;
 
-import static model.utils.Utils.clamp;
+import static utils.Utils.clamp;
 
 import java.util.Objects;
 

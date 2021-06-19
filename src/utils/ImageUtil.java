@@ -1,4 +1,4 @@
-package model.utils;
+package utils;
 
 import static model.operation.OperationFactory.createOp;
 

@@ -1,4 +1,4 @@
-package model.utils;
+package utils;
 
 /**
  * Utils class which is necessary for conducting the math and clamping

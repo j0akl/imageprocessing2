@@ -1,6 +1,6 @@
 package model.operation;
 
-import static model.utils.Utils.matmul;
+import static utils.Utils.matmul;
 
 //import java.util.Arrays;
 import java.util.List;

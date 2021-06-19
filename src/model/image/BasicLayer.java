@@ -1,12 +1,10 @@
 package model.image;
 
-import static model.utils.ImageUtil.readPPM;
-import static model.utils.SaveImage.saveImage;
-import static model.utils.Utils.clamp;
+import static utils.ImageUtil.readPPM;
+import static utils.SaveImage.saveImage;
+import static utils.Utils.clamp;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

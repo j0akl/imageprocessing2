@@ -1,7 +1,7 @@
-import static model.utils.Utils.clamp;
+import static utils.Utils.clamp;
 import static org.junit.Assert.assertArrayEquals;
 //import static org.junit.Assert.assertEquals;
-import static model.utils.Utils.matmul;
+import static utils.Utils.matmul;
 
 //import java.util.List;
 import org.junit.Assert;
