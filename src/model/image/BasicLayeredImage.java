@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.BaseStream;
 import model.operation.Operation;
 import model.pixel.BasicPixel;
 import model.pixel.Pixel;
@@ -33,7 +32,7 @@ public class BasicLayeredImage implements LayeredImage {
     Layer base = new BasicLayer();
     base.generateCheckerboard(w, h, new double[] {255., 255., 255.});
     layers.put("Base Layer", base);
-    selectedLayer = "Base";
+    selectedLayer = "Base Layer";
   }
 
   public BasicLayeredImage(String directory) throws IOException, FileNotFoundException {
@@ -76,6 +75,11 @@ public class BasicLayeredImage implements LayeredImage {
     return selectedLayer;
   }
 
+  @Override
+  public List<List<Pixel>> getPixelsFromSelectedLayer() {
+    return layers.get(selectedLayer).getPixels();
+  }
+
   private void validateLayername(String layername) throws IllegalArgumentException {
     if (layername == null) {
       throw new IllegalArgumentException("Must provide a name for a new layer");
@@ -111,7 +115,11 @@ public class BasicLayeredImage implements LayeredImage {
 
   @Override
   public void remove() throws IllegalArgumentException {
+    if (selectedLayer.equals("Base Layer")) {
+      throw new IllegalArgumentException("Cannot remove base layer");
+    }
     layers.remove(selectedLayer);
+    selectedLayer = "Base Layer";
   }
 
   @Override
@@ -169,7 +177,6 @@ public class BasicLayeredImage implements LayeredImage {
               baseRGB[0] + addRGB[0],
               baseRGB[1] + addRGB[1],
               baseRGB[2] + addRGB[2],
-
           };
           rowToReceive.set(i, new BasicPixel(rgb[0], rgb[1], rgb[2]));
         }

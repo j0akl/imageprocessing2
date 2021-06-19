@@ -2,13 +2,17 @@ package model.image;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import model.operation.Operation;
+import model.pixel.Pixel;
 
 public interface LayeredImage {
 
   void selectLayer(String layername) throws IllegalArgumentException;
 
   String getSelectedLayer();
+
+  List<List<Pixel>> getPixelsFromSelectedLayer();
 
   void addLayer(String layername) throws IllegalArgumentException;
 

@@ -48,9 +48,6 @@ public class BasicLayer implements Layer {
     isVisible = true;
   }
 
-  public Layer copy() {
-    return new BasicLayer(getPixels());
-  }
 
   /**
    * Constructs a basic image.
@@ -63,6 +60,10 @@ public class BasicLayer implements Layer {
     grid = readPPM(filename);
     history = new Stack<>();
     isVisible = true;
+  }
+
+  public Layer copy() {
+    return new BasicLayer(getPixels());
   }
 
   public void changeVisibility() {
