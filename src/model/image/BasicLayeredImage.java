@@ -12,6 +12,12 @@ import model.operation.Operation;
 import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 
+/**
+ * Represents an image made up of multiple layers. Each layer
+ * is stored as a Layer object in a map with a name. Provides
+ * means to manipulate each layer, save, load, and export the
+ * entire layered image.
+ */
 public class BasicLayeredImage implements LayeredImage {
 
   private String selectedLayer;
@@ -20,6 +26,12 @@ public class BasicLayeredImage implements LayeredImage {
   private final int width;
   private final int height;
 
+  /**
+   * Basic constructor. Uses a width and height to
+   * initialize a base layer as a black and white checkerboard.
+   * @param w - the width of the checkerboard
+   * @param h - the height of the checkerboard
+   */
   public BasicLayeredImage(int w, int h) {
     width = w;
     height = h;
@@ -31,6 +43,12 @@ public class BasicLayeredImage implements LayeredImage {
     selectedLayer = "Base Layer";
   }
 
+  /**
+   * Constructor to initialize a layered image from a saved layered image directory.
+   * @param directory - the directory to load files from.
+   * @throws IOException - if there is an error loading the files.
+   * @throws IllegalStateException - if there is an error initializing the fields.
+   */
   public BasicLayeredImage(String directory) throws IOException, IllegalStateException {
     filename = directory;
     Map<String, Object> fields = loadLayeredImage(directory);
@@ -44,6 +62,12 @@ public class BasicLayeredImage implements LayeredImage {
     }
   }
 
+  /**
+   * Changes the current active layer to the one given as a parameter.
+   * @param layername - the new layer to select.
+   * @throws IllegalArgumentException - if the layer to select does not exist
+   *                                    or is null.
+   */
   public void selectLayer(String layername) throws IllegalArgumentException {
     if (layername == null) {
       throw new IllegalArgumentException("Layername was null");
@@ -54,10 +78,18 @@ public class BasicLayeredImage implements LayeredImage {
     selectedLayer = layername;
   }
 
+  /**
+   * Returns the current selected layer.
+   * @return - the name of the selected layer.
+   */
   public String getSelectedLayer() {
     return selectedLayer;
   }
 
+  /**
+   *
+   * @return
+   */
   @Override
   public List<List<Pixel>> getPixelsFromSelectedLayer() {
     return layers.get(selectedLayer).getPixels();

@@ -8,8 +8,10 @@ public class ImageProcessingController {
   private final LayeredImage image;
 
 
-  public ImageProcessingController() {
-    image = new BasicLayeredImage(5, 5);
+  public ImageProcessingController(int w, int h) {
+    image = new BasicLayeredImage(w, h);
   }
+
+
 
 }

@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controller/IPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckBLUR.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckGREYSCALE.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckSEPIA.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckSHARPEN.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailADD.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailAVG.ppm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ImageProcessingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImageProcessingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/LayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/LayeredImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayeredImage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +15,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -79,15 +69,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,7 +143,8 @@
       <workItem from="1623875956918" duration="202000" />
       <workItem from="1623876217993" duration="5690000" />
       <workItem from="1623947569289" duration="5186000" />
-      <workItem from="1624140875915" duration="3371000" />
+      <workItem from="1624140875915" duration="4209000" />
+      <workItem from="1624201424634" duration="408000" />
     </task>
     <servers />
   </component>
