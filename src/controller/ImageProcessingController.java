@@ -249,6 +249,20 @@ public class ImageProcessingController implements IPController {
   }
 
   /**
+   * Logic used to copy the selected layer into a new layer.
+   * @param scan - the scanner to read input from.
+   */
+  private void copyLayer(Scanner scan) {
+    String command = scan.next();
+    if (command.contains(";")) {
+      command = command.substring(0, command.length() - 1);
+      model.copyLayer(command);
+    } else {
+      renderMessage("Invalid command, try again.");
+    }
+  }
+
+  /**
    * Method used to start the program. Initializes the execute method
    * with the readable passed at controller initialization.
    */
@@ -269,6 +283,8 @@ public class ImageProcessingController implements IPController {
     while (!(command.equals("q") || command.equals("q;"))) {
       if (command.equals("create")) {
         createLayer(scan);
+      } else if (command.equals("copy")) {
+        copyLayer(scan);
       } else if (command.equals("load")) {
         loadLayeredImage(scan);
       } else if (command.contains("save")) {

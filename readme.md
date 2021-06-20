@@ -32,6 +32,24 @@ for any size matrix. We decided to abstract matrix multiplication out to a stati
 
 Clamp was also sent to a static util, it clamps the value of a double[] to [0, 255].
 
+## Explaination for week 2
+
+We decided that the easiest way to represent layered images would be to store a map
+of BasicImages (now BasicLayers) with their names. The layered images can be saved to a directory,
+loaded, layers can be added by adding to the map, removed, etc. We decided that, from a GUI standpoint,
+it made the most sense for the client to select a layer and operate on it, rather than specifying
+the layer during each operation. This will make it easier to tell what buttons do, and what is being
+manipulated.
+
+We decided to add an export function that flattens the layers, either by adding or averaging,
+and saves the result to its own image file rather than a directory. This mimics the behavior of applications
+like Photoshop, which can save both .psd and other image formats.
+
+All File I/O is handled by static methods. This is better than having the operations directly
+controlled by the model.
+
+
+
 ## Changelog
 ### Week 2
 
@@ -43,7 +61,6 @@ Clamp was also sent to a static util, it clamps the value of a double[] to [0, 2
 - added .equals and .hashCode to pixel
 - added a constructor to layer to take pixels
 - moved file i/o to a static method (from the model)
-
 
 ## Citations
 

@@ -263,6 +263,8 @@ public class BasicLayeredImage implements LayeredImage {
    * @return - a layer made up of a combination of all the visible layers.
    */
   private Layer flattenAvgLayers() {
+    // this method is long, but all the functionality is closely related.
+    // Decided to leave it as one unit rather than breaking it up.
     List<List<double[]>> sum = new ArrayList<>();
     for (int i = 0; i < height; i++) {
       sum.add(new ArrayList<>());
