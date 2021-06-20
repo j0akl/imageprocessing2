@@ -43,6 +43,7 @@ Clamp was also sent to a static util, it clamps the value of a double[] to [0, 2
 - added .equals and .hashCode to pixel
 - added a constructor to layer to take pixels
 - moved file i/o to a static method (from the model)
+  (No longer handled by the model).
 
 
 ## Citations

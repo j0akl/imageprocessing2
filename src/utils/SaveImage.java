@@ -8,8 +8,20 @@ import java.util.List;
 import model.image.Layer;
 import model.pixel.Pixel;
 
+/**
+ * Made under utils as a save image class made to save image. Handles the methods to deal saving
+ * image and writing it to file.
+ * Model is no longer handling this function.
+ */
 public class SaveImage {
 
+  /**
+   * Saves the image as the given filename as a string and the image that wants to be saved.
+   * Model is no longer handling this method.
+   * @param filename string of the filename to be saved under.
+   * @param image image wanting to be saved.
+   * @throws IOException throws the IO if file is not found.
+   */
   public static void saveImage(String filename, Layer image) throws IOException {
     File f = new File(filename);
     writeToFile(f, image.getPixels());
