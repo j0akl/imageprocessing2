@@ -87,14 +87,19 @@ public class BasicLayeredImage implements LayeredImage {
   }
 
   /**
-   *
-   * @return
+   * Returns the pixel grid from the current selected layer.
+   * @return - pixels from the selected layer.
    */
   @Override
   public List<List<Pixel>> getPixelsFromSelectedLayer() {
     return layers.get(selectedLayer).getPixels();
   }
 
+  /**
+   * Checks that a layername is valid when adding a new layer.
+   * @param layername - the layername to validate.
+   * @throws IllegalArgumentException - if the name is invalid.
+   */
   private void validateLayername(String layername) throws IllegalArgumentException {
     if (layername == null) {
       throw new IllegalArgumentException("Must provide a name for a new layer");
@@ -104,12 +109,26 @@ public class BasicLayeredImage implements LayeredImage {
     }
   }
 
+  /**
+   * Adds an empty base layer to the top of the layer stack.
+   * @param layername - the name of the new layer.
+   * @throws IllegalArgumentException - if the layername is invalid.
+   */
   @Override
   public void addLayer(String layername) throws IllegalArgumentException {
     validateLayername(layername);
     layers.put(layername, new BasicLayer());
   }
 
+  /**
+   * Adds a new layer from an image file.
+   * @param layername - the name of the new layer.
+   * @param filename - the filename for the image to add.
+   * @throws IllegalArgumentException - if the name is invalid or the
+   *                                    height and width of the new image
+   *                                    do not match this layeredimage's.
+   * @throws IOException - if there is an error loading the files.
+   */
   @Override
   public void addLayer(String layername, String filename)
       throws IllegalArgumentException, IOException {
@@ -121,6 +140,11 @@ public class BasicLayeredImage implements LayeredImage {
     layers.put(layername, layer);
   }
 
+  /**
+   * Creates a new layer from a copy of an existing one.
+   * @param newname - the name for the new layer.
+   * @throws IllegalArgumentException - if the new name is invalid.
+   */
   @Override
   public void copyLayer(String newname) throws IllegalArgumentException {
     Layer layerToCopy = layers.get(selectedLayer);
@@ -128,6 +152,10 @@ public class BasicLayeredImage implements LayeredImage {
     layers.put(newname, layerToCopy.copy());
   }
 
+  /**
+   * Removes a layer from the layeredImage.
+   * @throws IllegalArgumentException - if the layer is the base layer.
+   */
   @Override
   public void remove() throws IllegalArgumentException {
     if (selectedLayer.equals("Base Layer")) {
@@ -137,16 +165,38 @@ public class BasicLayeredImage implements LayeredImage {
     selectedLayer = "Base Layer";
   }
 
+  /**
+   * Changes the visibility of the selected layer.
+   */
   @Override
-  public void changeVisibility() throws IllegalArgumentException {
+  public void changeVisibility() {
     layers.get(selectedLayer).changeVisibility();
   }
 
+  /**
+   * Creates a white and black checkerboard, overwriting the current
+   * selected layer.
+   */
   @Override
-  public void generateCheckerboard() throws IllegalArgumentException {
+  public void generateCheckerboard() {
     layers.get(selectedLayer).generateCheckerboard(width, height, new double[] {255., 255., 255.});
   }
 
+  /**
+   * Gets the visibility status of the selected layer.
+   * @return - the visibility.
+   */
+  @Override
+  public boolean getLayerVisibility() {
+    return layers.get(selectedLayer).getVisibility();
+  }
+
+  /**
+   * Saves this layer image in a directory, each layer is its own image.
+   * Also has a config file explaining to the program how to load the file.
+   * @throws IllegalStateException - if the filename is null or invalid.
+   * @throws IOException - if there is an issue saving the file.
+   */
   @Override
   public void save() throws IllegalStateException, IOException {
     if (filename == null) {
@@ -155,17 +205,31 @@ public class BasicLayeredImage implements LayeredImage {
     saveAs(filename);
   }
 
+  /**
+   * Saves this layer image under the given name.
+   * @param name - the name to save the files under.
+   * @throws IllegalArgumentException - if the name is invalid.
+   * @throws IOException - if there is an error saving the files.
+   */
   @Override
   public void saveAs(String name) throws IllegalArgumentException, IOException {
     saveLayeredImage(name, width, height, layers);
     filename = name;
   }
 
+  /**
+   * Applies an operation to the currently selected layer.
+   * @param op - the operation to apply.
+   */
   @Override
   public void addFilter(Operation op) {
     layers.get(selectedLayer).apply(op);
   }
 
+  /**
+   * Flattens a layer for export by adding together the values of the pixels.
+   * @return - a layer made up of a combination of all the visible layers in this image.
+   */
   private Layer flattenAddLayers() {
     Layer black = new BasicLayer();
     black.generateCheckerboard(width, height, new double [] {0.,0.,0.});
@@ -193,6 +257,11 @@ public class BasicLayeredImage implements LayeredImage {
     return new BasicLayer(constructedLayerPixels);
   }
 
+  /**
+   * Flattens all visible layers in this image into one image by
+   * averaging the values of their pixels.
+   * @return - a layer made up of a combination of all the visible layers.
+   */
   private Layer flattenAvgLayers() {
     List<List<double[]>> sum = new ArrayList<>();
     for (int i = 0; i < height; i++) {
@@ -233,11 +302,22 @@ public class BasicLayeredImage implements LayeredImage {
     return new BasicLayer(grid);
   }
 
+  /**
+   * Exports this image under the current filename.
+   * @param t - the type of blending to use.
+   * @throws IOException - if there is an error exporting the image.
+   */
   @Override
   public void export(BlendType t) throws IOException {
     exportAs(filename, t);
   }
 
+  /**
+   * Exports this image under a new filename.
+   * @param filename - the filename to use.
+   * @param t - the blend type.
+   * @throws IOException - if there is an error exporting the image.
+   */
   @Override
   public void exportAs(String filename, BlendType t) throws IOException {
     switch (t) {

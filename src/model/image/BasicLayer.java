@@ -1,10 +1,8 @@
 package model.image;
 
-import static utils.ImageUtil.readPPM;
 import static utils.Utils.clamp;
 import static utils.Utils.loadLayer;
 import static utils.Utils.saveLayer;
-import static utils.Utils.saveLayerPPM;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
