@@ -1,10 +1,13 @@
 package utils;
 
 import static model.operation.OperationFactory.createOp;
-import static utils.Utils.loadLayer;
 
+import controller.IPController;
+import controller.ImageProcessingController;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import model.image.BasicLayer;
 import model.image.BasicLayeredImage;
 import model.image.BlendType;
@@ -12,6 +15,9 @@ import model.image.Layer;
 import model.image.LayeredImage;
 import model.operation.OperationFactory.OpType;
 
+/**
+ * Main method container.
+ */
 public class Main {
 
   private static void mainFromPt1(String[] args) {
@@ -73,13 +79,19 @@ public class Main {
     }
   }
 
+  private static void mainController() throws FileNotFoundException {
+    LayeredImage model = new BasicLayeredImage(256, 256);
+    File f = new File("res/commands.txt");
+    IPController controller = new ImageProcessingController(model, new InputStreamReader(System.in), System.out);
+    controller.go();
+  }
+
   /**
    * Main method to test the functionality of the program.
    *
    * @param args filename as string array of arguments.
    */
-  public static void main(String[] args) {
-    mainFromPt1(args);
+  public static void main(String[] args) throws FileNotFoundException {
+    mainController();
   }
-
 }

@@ -1,6 +1,5 @@
 package model.image;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import model.operation.Operation;

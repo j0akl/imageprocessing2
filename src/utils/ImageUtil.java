@@ -1,19 +1,10 @@
 package utils;
 
-import static model.operation.OperationFactory.createOp;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
-import model.image.BasicLayer;
-import model.image.Layer;
-//import model.operation.Blur;
-//import model.operation.Greyscale;
-import model.operation.OperationFactory.OpType;
-//import model.operation.Sepia;
-//import model.operation.Sharpen;
 import model.pixel.BasicPixel;
 import model.pixel.Pixel;
 

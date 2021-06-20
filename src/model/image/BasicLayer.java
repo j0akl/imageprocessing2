@@ -62,16 +62,18 @@ public class BasicLayer implements Layer {
     isVisible = true;
   }
 
+  @Override
   public Layer copy() {
     return new BasicLayer(getPixels());
   }
 
+  @Override
   public void changeVisibility() {
     isVisible = !isVisible;
   }
 
   /**
-   * Saves the image with the file name.
+   * Saves the image with the filename parameter.
    *
    * @throws IOException throws exception if unable to save.
    */

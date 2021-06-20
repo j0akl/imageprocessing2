@@ -1,0 +1,3 @@
+256 256
+res/snail/Base Layer.ppm
+res/snail/snail.ppm
