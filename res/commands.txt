@@ -1,5 +1,0 @@
-create layer1 res/snail.ppm;
-select layer1;
-filter blur;
-saveas res/snailText;
-q

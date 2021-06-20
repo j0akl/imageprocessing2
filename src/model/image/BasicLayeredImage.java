@@ -322,13 +322,10 @@ public class BasicLayeredImage implements LayeredImage {
    */
   @Override
   public void exportAs(String filename, BlendType t) throws IOException {
-    switch (t) {
-      case AVG:
-        flattenAvgLayers().saveAs(filename);
-        break;
-      case ADD:
-        flattenAddLayers().saveAs(filename);
-        break;
+    if (t.equals(BlendType.AVG)) {
+      flattenAvgLayers().saveAs(filename);
+    } else {
+      flattenAddLayers().saveAs(filename);
     }
   }
 }

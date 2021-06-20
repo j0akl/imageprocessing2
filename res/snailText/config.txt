@@ -1,3 +1,0 @@
-256 256
-res/snailText/Base Layer.ppm
-res/snailText/layer1.ppm

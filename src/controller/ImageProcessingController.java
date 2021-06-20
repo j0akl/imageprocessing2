@@ -267,7 +267,7 @@ public class ImageProcessingController implements IPController {
    * with the readable passed at controller initialization.
    */
   @Override
-  public void go() {
+  public void start() {
     execute(new Scanner(rd));
   }
 

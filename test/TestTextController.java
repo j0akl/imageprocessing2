@@ -12,11 +12,18 @@ import model.pixel.Pixel;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for ImageProcessing controller methods and functionality.
+ */
 public class TestTextController {
 
   Appendable output;
   LayeredImage model;
 
+  /**
+   * Mock model for testing the controller. Uses the output appendable
+   * to track inputs passed.
+   */
   private static class MockModel implements LayeredImage {
 
     private final Appendable ap;
@@ -26,7 +33,7 @@ public class TestTextController {
     }
 
     public void generateCheckerboard() {
-
+      // unused by controller
     }
 
     public void copyLayer(String newname) {
@@ -94,7 +101,9 @@ public class TestTextController {
       }
     }
 
-    public boolean getLayerVisibility() { return true; }
+    public boolean getLayerVisibility() {
+      return true;
+    }
 
     public void save() {
       try {
@@ -140,7 +149,7 @@ public class TestTextController {
   public void testCreate() {
     Readable in = new StringReader("create layer1; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to create",
         "layer1",
@@ -152,7 +161,7 @@ public class TestTextController {
   public void testCreateFromFile() {
     Readable in = new StringReader("create layer1 filename; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to create",
         "layer1 filename",
@@ -164,7 +173,7 @@ public class TestTextController {
   public void testCopy() {
     Readable in = new StringReader("copy layer1; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to copy",
         "layer1",
@@ -176,7 +185,7 @@ public class TestTextController {
   public void testSave() {
     Readable in = new StringReader("save; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to save",
         "save",
@@ -188,7 +197,7 @@ public class TestTextController {
   public void testSaveAs() {
     Readable in = new StringReader("saveas filename; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to saveas",
         "filename",
@@ -200,7 +209,7 @@ public class TestTextController {
   public void testSelect() {
     Readable in = new StringReader("select layer; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to select",
         "layer",
@@ -212,7 +221,7 @@ public class TestTextController {
   public void testExport() {
     Readable in = new StringReader("export avg; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to export",
         "AVG",
@@ -224,7 +233,7 @@ public class TestTextController {
   public void testExportAs() {
     Readable in = new StringReader("exportas avg filename; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to export",
         "filename AVG",
@@ -236,7 +245,7 @@ public class TestTextController {
   public void testFilter() {
     Readable in = new StringReader("filter sepia; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to filter",
         "Sepia",
@@ -248,7 +257,7 @@ public class TestTextController {
   public void testRemove() {
     Readable in = new StringReader("create layer1; select layer1; remove; q");
     IPController controller = new ImageProcessingController(model, in, System.out);
-    controller.go();
+    controller.start();
 
     assertEquals("Wrong input to remove",
         "layer1layer1remove",

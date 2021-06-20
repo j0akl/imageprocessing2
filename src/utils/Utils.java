@@ -199,8 +199,6 @@ public class Utils {
       } else {
         throw new IllegalStateException("Could not get the layername from the config file");
       }
-      System.out.println(layername);
-      System.out.println(line);
       layers.put(layername, new BasicLayer(line));
       line = configReader.readLine();
     }

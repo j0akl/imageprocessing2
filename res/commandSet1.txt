@@ -1,0 +1,7 @@
+create snail snail.ppm;
+select snail;
+copy snailCopy;
+select snailCopy;
+filter blur;
+exec commandSet2.txt;
+q;

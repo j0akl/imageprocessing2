@@ -1,0 +1,6 @@
+exportas avg snailLayers.png;
+saveas snailLayers;
+remove;
+load snailLayers;
+select snailCopy;
+q;

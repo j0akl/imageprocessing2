@@ -2,11 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/TestTextController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/imageprocessing2_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/buck.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/buckBLUR.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/buckGREYSCALE.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/buckSEPIA.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/buckSHARPEN.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/commands.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snail/Base Layer.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snail/config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snail/snail.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailBLUR.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailGREYSCALE.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailSEPIA.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailSHARPEN.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailText/Base Layer.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailText/config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailText/layer1.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snailavg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snaillayers/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/snaillayers/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snaillayers/snail1.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snaillayers/snail2.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/snaillayers/snail3.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ImageProcessingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImageProcessingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/BlendType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BlendType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayeredImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestTextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestTextController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,15 +75,37 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.096153855" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.TestTextController.testRemove">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="utils.Main" />
+      <module name="imageprocessing2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -108,23 +157,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTextController.testSaveAs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="imageprocessing2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestTextController" />
-      <option name="METHOD_NAME" value="testSaveAs" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestTextController.testRemove" />
         <item itemvalue="JUnit.TestTextController.testFilter" />
         <item itemvalue="JUnit.TestTextController.testExportAs" />
         <item itemvalue="JUnit.TestTextController.testExport" />
-        <item itemvalue="JUnit.TestTextController.testSaveAs" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +182,7 @@
       <workItem from="1623876217993" duration="5690000" />
       <workItem from="1623947569289" duration="5186000" />
       <workItem from="1624140875915" duration="4209000" />
-      <workItem from="1624201424634" duration="11247000" />
+      <workItem from="1624201424634" duration="12730000" />
     </task>
     <servers />
   </component>

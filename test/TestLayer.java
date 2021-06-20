@@ -6,11 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.image.BasicLayer;
 import model.image.Layer;
-import model.operation.Blur;
-//import model.operation.OperationFactory;
-//import model.operation.Sepia;
 import model.pixel.Pixel;
-//import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -47,23 +43,15 @@ public class TestLayer {
   }
 
   @Test
-  public void testGetVisibility(){
+  public void testGetVisibility() {
     Layer layer = new BasicLayer();
     assertTrue(layer.getVisibility());
   }
 
   @Test
-  public void testGetPixels(){
+  public void testGetPixels() {
     Layer layer = new BasicLayer();
     System.out.println(layer.getPixels());
     assertEquals(layer.getPixels(), new ArrayList<>());
   }
-
-  @Test
-  public void testApply(){
-    Blur blur = new Blur();
-    Layer layer = new BasicLayer();
-    layer.apply(blur);
-  }
-
 }

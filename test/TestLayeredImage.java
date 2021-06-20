@@ -1,7 +1,5 @@
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import model.image.BasicLayer;
@@ -13,6 +11,9 @@ import model.pixel.Pixel;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for LayeredImage methods and functionality.
+ */
 public class TestLayeredImage {
 
   LayeredImage baseLayeredImage;

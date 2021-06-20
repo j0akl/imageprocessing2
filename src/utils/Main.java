@@ -6,8 +6,8 @@ import controller.IPController;
 import controller.ImageProcessingController;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import model.image.BasicLayer;
 import model.image.BasicLayeredImage;
 import model.image.BlendType;
@@ -81,9 +81,9 @@ public class Main {
 
   private static void mainController() throws FileNotFoundException {
     LayeredImage model = new BasicLayeredImage(256, 256);
-    File f = new File("res/commands.txt");
-    IPController controller = new ImageProcessingController(model, new InputStreamReader(System.in), System.out);
-    controller.go();
+    File f = new File("commandSet1.txt");
+    IPController controller = new ImageProcessingController(model, new FileReader(f), System.out);
+    controller.start();
   }
 
   /**

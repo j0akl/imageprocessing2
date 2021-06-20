@@ -10,6 +10,6 @@ public interface IPController {
    * Runs the program. Uses the image and user input to
    * manipulate the layers contained in the model.
    */
-  void go();
+  void start();
 
 }
