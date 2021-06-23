@@ -87,11 +87,22 @@ public class Utils {
       saveLayerPPM(filename, layer);
       return;
     }
+    BufferedImage img = makeBIFromLayer(layer);
+    String tail = filename.substring(filename.length() - 3);
+    File f = new File(filename);
+    ImageIO.write(img, tail, f);
+  }
+
+  /**
+   * Makes a BufferedImage object from a given layer. Used for exporting and displaying images.
+   * @param layer - the layer to convert
+   * @return - a buffered image of the passed layer
+   */
+  public static BufferedImage makeBIFromLayer(Layer layer) {
     List<List<Pixel>> grid = layer.getPixels();
     int h = grid.size();
     int w = grid.get(0).size();
     BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-    String tail = filename.substring(filename.length() - 3);
     for (int j = 0; j < h; j++) {
       for (int i = 0; i < w; i++) {
         Pixel pixel = grid.get(j).get(i);
@@ -102,8 +113,7 @@ public class Utils {
         img.setRGB(i, j, rgb);
       }
     }
-    File f = new File(filename);
-    ImageIO.write(img, tail, f);
+    return img;
   }
 
   /**

@@ -1,5 +1,7 @@
 package controller;
 
+import static utils.Utils.makeBIFromLayer;
+
 import commands.AddLayer;
 import commands.ChangeVisibility;
 import commands.Command;
@@ -16,12 +18,10 @@ import commands.Save;
 import commands.SaveAs;
 import commands.SelectLayer;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import model.image.BasicLayeredImage;
 import model.image.BlendType;
 import model.image.IPModel;
 import model.operation.OperationFactory.OpType;
@@ -39,6 +39,9 @@ public class IPControllerGUI implements IPControllerMutableModel {
     commands = new HashMap<>();
     setupCommands();
 
+    System.setProperty("apple.laf.useScreenMenuBar", "true");
+    System.setProperty(
+        "com.apple.mrj.application.apple.menu.about.name", "Name");
     this.view = new IPFrame(this);
   }
 
@@ -62,6 +65,7 @@ public class IPControllerGUI implements IPControllerMutableModel {
       }
       // NullPointerException means the action was cancelled.
     } catch (NullPointerException ignored) {  }
+    view.setImage(makeBIFromLayer(model.topmostLayer()));
   }
 
   private void setupCommands() {
@@ -83,6 +87,5 @@ public class IPControllerGUI implements IPControllerMutableModel {
 
   @Override
   public void start() {
-
   }
 }

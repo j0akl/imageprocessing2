@@ -9,6 +9,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import model.image.BasicLayer;
 import model.image.BasicLayeredImage;
 import model.image.BlendType;
@@ -90,8 +93,18 @@ public class Main {
   }
 
   private static void mainGUI() {
+    JFrame.setDefaultLookAndFeelDecorated(false);
     IPController controller = new IPControllerGUI();
     controller.start();
+
+    try {
+      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    } catch (UnsupportedLookAndFeelException
+        | ClassNotFoundException
+        | InstantiationException
+        | IllegalAccessException e) {
+      e.printStackTrace();
+    }
   }
 
   /**
