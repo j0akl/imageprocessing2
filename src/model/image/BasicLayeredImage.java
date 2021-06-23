@@ -18,10 +18,11 @@ import model.pixel.Pixel;
  * means to manipulate each layer, save, load, and export the
  * entire layered image.
  */
-public class BasicLayeredImage implements LayeredImage {
+public class BasicLayeredImage implements IPModel {
 
   private String selectedLayer;
   private String filename;
+  private String exportName;
   private final Map<String, Layer> layers;
   private final int width;
   private final int height;
@@ -36,6 +37,7 @@ public class BasicLayeredImage implements LayeredImage {
     width = w;
     height = h;
     filename = null;
+    exportName = null;
     layers = new LinkedHashMap<>();
     Layer base = new BasicLayer();
     base.generateCheckerboard(w, h, new double[] {255., 255., 255.});
@@ -51,6 +53,7 @@ public class BasicLayeredImage implements LayeredImage {
    */
   public BasicLayeredImage(String directory) throws IOException, IllegalStateException {
     filename = directory;
+    exportName = null;
     Map<String, Object> fields = loadLayeredImage(directory);
     try {
       width = (int) fields.get("width");
@@ -226,11 +229,13 @@ public class BasicLayeredImage implements LayeredImage {
     layers.get(selectedLayer).apply(op);
   }
 
-  /**
-   * Flattens a layer for export by adding together the values of the pixels.
-   * @return - a layer made up of a combination of all the visible layers in this image.
-   */
-  private Layer flattenAddLayers() {
+  @Override
+  public List<String> getLayerNames() {
+    return new ArrayList<>(layers.keySet());
+  }
+
+  @Override
+  public Layer flattenAddLayers() {
     Layer black = new BasicLayer();
     black.generateCheckerboard(width, height, new double [] {0.,0.,0.});
     List<List<Pixel>> constructedLayerPixels = black.getPixels();
@@ -257,12 +262,8 @@ public class BasicLayeredImage implements LayeredImage {
     return new BasicLayer(constructedLayerPixels);
   }
 
-  /**
-   * Flattens all visible layers in this image into one image by
-   * averaging the values of their pixels.
-   * @return - a layer made up of a combination of all the visible layers.
-   */
-  private Layer flattenAvgLayers() {
+  @Override
+  public Layer flattenAvgLayers() {
     // this method is long, but all the functionality is closely related.
     // Decided to leave it as one unit rather than breaking it up.
     List<List<double[]>> sum = new ArrayList<>();
@@ -304,14 +305,28 @@ public class BasicLayeredImage implements LayeredImage {
     return new BasicLayer(grid);
   }
 
+  @Override
+  public Layer topmostLayer() {
+    List<Layer> orderedLayers = new ArrayList<>();
+    for (Map.Entry<String, Layer> item : layers.entrySet()) {
+      if (item.getValue().getVisibility()) {
+        orderedLayers.add(item.getValue());
+      }
+    }
+    return orderedLayers.get(orderedLayers.size() - 1);
+  }
+
   /**
    * Exports this image under the current filename.
    * @param t - the type of blending to use.
    * @throws IOException - if there is an error exporting the image.
    */
   @Override
-  public void export(BlendType t) throws IOException {
-    exportAs(filename, t);
+  public void export(BlendType t) throws IllegalStateException, IOException {
+    if (exportName == null) {
+      throw new IllegalStateException("No export name found. Use Export As");
+    }
+    exportAs(exportName, t);
   }
 
   /**
@@ -322,10 +337,17 @@ public class BasicLayeredImage implements LayeredImage {
    */
   @Override
   public void exportAs(String filename, BlendType t) throws IOException {
-    if (t.equals(BlendType.AVG)) {
-      flattenAvgLayers().saveAs(filename);
-    } else {
-      flattenAddLayers().saveAs(filename);
+    switch (t) {
+      case AVG:
+        flattenAvgLayers().saveAs(filename);
+        break;
+      case ADD:
+        flattenAddLayers().saveAs(filename);
+        break;
+      case TOP:
+        topmostLayer().saveAs(filename);
+        break;
     }
+    this.exportName = filename;
   }
 }

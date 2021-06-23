@@ -3,7 +3,8 @@ package utils;
 import static model.operation.OperationFactory.createOp;
 
 import controller.IPController;
-import controller.ImageProcessingController;
+import controller.IPControllerGUI;
+import controller.IPControllerText;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,8 +13,10 @@ import model.image.BasicLayer;
 import model.image.BasicLayeredImage;
 import model.image.BlendType;
 import model.image.Layer;
-import model.image.LayeredImage;
+import model.image.IPModel;
 import model.operation.OperationFactory.OpType;
+import view.IPFrame;
+import view.IPView;
 
 /**
  * Main method container.
@@ -56,7 +59,7 @@ public class Main {
       filename = "";
     }
 
-    LayeredImage layered = new BasicLayeredImage(256, 256);
+    IPModel layered = new BasicLayeredImage(256, 256);
     try {
       layered.addLayer("snail1", "res/snail.ppm");
       layered.addLayer("snail2", "res/snailBLUR.ppm");
@@ -80,9 +83,14 @@ public class Main {
   }
 
   private static void mainController() throws FileNotFoundException {
-    LayeredImage model = new BasicLayeredImage(256, 256);
+    IPModel model = new BasicLayeredImage(256, 256);
     File f = new File("commandSet1.txt");
-    IPController controller = new ImageProcessingController(model, new FileReader(f), System.out);
+    IPController controller = new IPControllerText(model, new FileReader(f), System.out);
+    controller.start();
+  }
+
+  private static void mainGUI() {
+    IPController controller = new IPControllerGUI();
     controller.start();
   }
 
@@ -92,6 +100,6 @@ public class Main {
    * @param args filename as string array of arguments.
    */
   public static void main(String[] args) throws FileNotFoundException {
-    mainController();
+    mainGUI();
   }
 }

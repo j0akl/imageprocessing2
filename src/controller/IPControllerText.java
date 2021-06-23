@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import model.image.BasicLayeredImage;
 import model.image.BlendType;
-import model.image.LayeredImage;
+import model.image.IPModel;
 import model.operation.Blur;
 import model.operation.Greyscale;
 import model.operation.Sepia;
@@ -17,9 +17,9 @@ import model.operation.Sharpen;
  * A text implementation of the IPController. Can read from
  * an input stream and manipulate the given image.
  */
-public class ImageProcessingController implements IPController {
+public class IPControllerText implements IPController {
 
-  private LayeredImage model;
+  private IPModel model;
   private final Readable rd;
   private final Appendable ap;
 
@@ -30,7 +30,7 @@ public class ImageProcessingController implements IPController {
    * @param ap - the output to use.
    * @throws IllegalArgumentException - if any of the arguments are null.
    */
-  public ImageProcessingController(LayeredImage model, Readable rd, Appendable ap)
+  public IPControllerText(IPModel model, Readable rd, Appendable ap)
       throws IllegalArgumentException {
     if (rd == null || ap == null) {
       throw new IllegalArgumentException("One or more I/O parameter is null");

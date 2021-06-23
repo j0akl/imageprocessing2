@@ -11,7 +11,7 @@ import model.pixel.Pixel;
  * means to manipulate each layer, save, load, and export the
  * entire layered image.
  */
-public interface LayeredImage {
+public interface IPModel {
 
   /**
    * Changes the current active layer to the one given as a parameter.
@@ -105,6 +105,25 @@ public interface LayeredImage {
   void saveAs(String name) throws IOException, IllegalArgumentException;
 
   /**
+   * Flattens all visible layers in this image into one image by
+   * averaging the values of their pixels.
+   * @return - a layer made up of a combination of all the visible layers.
+   */
+  Layer flattenAvgLayers();
+
+  /**
+   * Flattens a layer for export by adding together the values of the pixels.
+   * @return - a layer made up of a combination of all the visible layers in this image.
+   */
+  Layer flattenAddLayers();
+
+  /**
+   * Gets the topmost layer in the image.
+   * @return the topmost visible layer
+   */
+  Layer topmostLayer();
+
+  /**
    * Exports this image under the current filename.
    * @param t - the type of blending to use.
    * @throws IOException - if there is an error exporting the image.
@@ -118,4 +137,10 @@ public interface LayeredImage {
    * @throws IOException - if there is an error exporting the image.
    */
   void exportAs(String filename, BlendType t) throws IOException;
+
+  /**
+   * Returns a list of the names of the layers in this image.
+   * @return a list of layernames.
+   */
+  List<String> getLayerNames();
 }

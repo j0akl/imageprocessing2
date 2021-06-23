@@ -62,6 +62,14 @@ controlled by the model.
 - added a constructor to layer to take pixels
 - moved file i/o to a static method (from the model)
 
+### Week 3
+
+- Added a BlendType, topmostlayer. Gets the topmost layer for exporting.
+- Made the flatten methods on LayeredImage public to allow for easier viewing.
+- Added a field to layeredImage to keep track of the export name for a file
+- Changed the name of LayeredImage to IPModel for consistency
+- added getLayerNames to IPImage
+
 ## Citations
 
 Both images taken from:

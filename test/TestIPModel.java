@@ -5,7 +5,7 @@ import java.util.List;
 import model.image.BasicLayer;
 import model.image.BasicLayeredImage;
 import model.image.Layer;
-import model.image.LayeredImage;
+import model.image.IPModel;
 import model.operation.Blur;
 import model.pixel.Pixel;
 import org.junit.Before;
@@ -14,10 +14,10 @@ import org.junit.Test;
 /**
  * Test class for LayeredImage methods and functionality.
  */
-public class TestLayeredImage {
+public class TestIPModel {
 
-  LayeredImage baseLayeredImage;
-  LayeredImage snailLayeredImage;
+  IPModel baseLayeredImage;
+  IPModel snailLayeredImage;
 
   Layer snailLayer1;
   Layer snailLayer2;
@@ -152,7 +152,7 @@ public class TestLayeredImage {
       System.out.println(e.getMessage());
     }
 
-    LayeredImage snailLoaded;
+    IPModel snailLoaded;
     try {
       snailLoaded = new BasicLayeredImage("res/snaillayers");
     } catch (IOException e) {

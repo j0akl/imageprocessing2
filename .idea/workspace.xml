@@ -2,37 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/imageprocessing2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/AddLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/ChangeVisibility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/Commands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/CopyLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/Export.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/ExportAs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/GenCheckerboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/Load.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/NewFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/OpCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/Remove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/Save.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/SaveAs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/SelectLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/IPControllerGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/IPControllerMutableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/IPFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/IPView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buck.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckBLUR.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckGREYSCALE.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckSEPIA.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/buckSHARPEN.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/commands.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snail/Base Layer.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snail/config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snail/snail.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailBLUR.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailGREYSCALE.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailSEPIA.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailSHARPEN.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailText/Base Layer.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailText/config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailText/layer1.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snailavg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snaillayers/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/snaillayers/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snaillayers/snail1.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snaillayers/snail2.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/snaillayers/snail3.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/IPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImageProcessingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImageProcessingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ImageProcessingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IPControllerText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BasicLayeredImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/image/BlendType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/BlendType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/LayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/IPModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestLayeredImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestLayeredImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestIPModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestTextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestTextController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +71,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/res" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -90,6 +86,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -182,7 +181,8 @@
       <workItem from="1623876217993" duration="5690000" />
       <workItem from="1623947569289" duration="5186000" />
       <workItem from="1624140875915" duration="4209000" />
-      <workItem from="1624201424634" duration="12730000" />
+      <workItem from="1624201424634" duration="13202000" />
+      <workItem from="1624396975021" duration="20483000" />
     </task>
     <servers />
   </component>
