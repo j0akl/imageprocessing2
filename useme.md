@@ -1,11 +1,13 @@
 # Commands for Image Processing
 
-## Rules
+## Scripts
+
+### Rules
 All commands are lowercase.
 The end of a command group (a set of words that complete a single action)
 should end in a semicolon (;).
 
-## Commands
+### Commands
 
 To quit the program: Type q at any time.
 
@@ -50,3 +52,9 @@ To remove a Layer:
 To execute a script from a file:
 - "exec" followed by the name of the file and a semicolon
 - Example: "exec commands.txt;"
+
+## GUI
+
+The GUI is pretty self explanatory. All of the possible operations are available
+by clicking the corrosponding menu option in the menu bar. Some of the more useful
+operations are located in the top and left section of the program.

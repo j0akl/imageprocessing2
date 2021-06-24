@@ -48,7 +48,15 @@ like Photoshop, which can save both .psd and other image formats.
 All File I/O is handled by static methods. This is better than having the operations directly
 controlled by the model.
 
+## Explaination for Week 3
 
+We used the command pattern to send commands from the view to the controller to the model.
+For each operation, a command object was created that would delegate the work to the model.
+The view would keep the name of the command as the actionCommand on each element so the controller
+(which was the action listener) could decode the commands and execute them.
+
+The same script files from last week should work as long as the jar is launched from the res/ folder.
+Run the first script, it will run the second one by itself.
 
 ## Changelog
 ### Week 2

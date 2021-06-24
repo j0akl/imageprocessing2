@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ca110621-dde0-411b-90a3-7adf30f86fc6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/commands/Execute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/AddLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/AddLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ChangeVisibility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ChangeVisibility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/CopyLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/CopyLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Export.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Export.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ExportAs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ExportAs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/GenCheckerboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/GenCheckerboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Load.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/NewFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/NewFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/OpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/OpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Remove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Remove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/SaveAs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/SaveAs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/SelectLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/SelectLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/IPControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IPControllerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/IPControllerMutableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/IPControllerMutableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/IPFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IPFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/IPView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IPView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +101,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestTextController.testExport" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="imageprocessing2" />
       <option name="PACKAGE_NAME" value="" />
@@ -150,7 +180,7 @@
       <workItem from="1624201424634" duration="13202000" />
       <workItem from="1624396975021" duration="20571000" />
       <workItem from="1624455653093" duration="148000" />
-      <workItem from="1624482556823" duration="5551000" />
+      <workItem from="1624482556823" duration="15096000" />
     </task>
     <servers />
   </component>
